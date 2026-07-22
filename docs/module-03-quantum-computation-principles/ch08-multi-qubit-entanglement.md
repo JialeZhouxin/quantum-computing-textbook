@@ -483,7 +483,7 @@ $$
 
 | 性质 | GHZ | W |
 |:---|:---|:---|
-| 形式 | $\frac{1}{\sqrt{2}}(|000\rangle + \|111\rangle)$ | $\frac{1}{\sqrt{3}}(\|001\rangle + \|010\rangle + \|100\rangle)$ |
+| 形式 | $\frac{1}{\sqrt{2}}(\lvert 000\rangle + \|111\rangle)$ | $\frac{1}{\sqrt{3}}(\|001\rangle + \|010\rangle + \|100\rangle)$ |
 | 纠缠类型 | 三体纠缠 | 二分纠缠 |
 | 丢失一体后 | 完全可分 | 保留纠缠 |
 | 对称性 | 完全对称 | 对称 |
@@ -921,10 +921,10 @@ $$
 
 | 输入 | 输出 |
 |:---:|:---:|
-| $|00\rangle$ | $|00\rangle$ |
-| $|01\rangle$ | $|01\rangle$ |
-| $|10\rangle$ | $|11\rangle$ |
-| $|11\rangle$ | $|10\rangle$ |
+| $\lvert 00\rangle$ | $\lvert 00\rangle$ |
+| $\lvert 01\rangle$ | $\lvert 01\rangle$ |
+| $\lvert 10\rangle$ | $\lvert 11\rangle$ |
+| $\lvert 11\rangle$ | $\lvert 10\rangle$ |
 
 即：控制比特为 $|0\rangle$ 时目标不变，控制比特为 $|1\rangle$ 时目标翻转。
 
@@ -977,10 +977,10 @@ $$
 
 | 输入 | 输出 |
 |:---:|:---:|
-| $|00\rangle$ | $|00\rangle$ |
-| $|01\rangle$ | $|01\rangle$ |
-| $|10\rangle$ | $|10\rangle$ |
-| $|11\rangle$ | $-|11\rangle$ |
+| $\lvert 00\rangle$ | $\lvert 00\rangle$ |
+| $\lvert 01\rangle$ | $\lvert 01\rangle$ |
+| $\lvert 10\rangle$ | $\lvert 10\rangle$ |
+| $\lvert 11\rangle$ | $-\lvert 11\rangle$ |
 
 只有 $|11\rangle$ 获得相位 $-1$。
 
@@ -1095,10 +1095,10 @@ $$
 
 | 输入 | 输出 |
 |:---:|:---:|
-| $|00\rangle$ | $|00\rangle$ |
-| $|01\rangle$ | $i|10\rangle$ |
-| $|10\rangle$ | $i|01\rangle$ |
-| $|11\rangle$ | $|11\rangle$ |
+| $\lvert 00\rangle$ | $\lvert 00\rangle$ |
+| $\lvert 01\rangle$ | $i\lvert 10\rangle$ |
+| $\lvert 10\rangle$ | $i\lvert 01\rangle$ |
+| $\lvert 11\rangle$ | $\lvert 11\rangle$ |
 
 **iSWAP 的平方**：
 
@@ -1417,10 +1417,10 @@ Alice 对 $(a,A)$ 做贝尔测量，四种结果等概率（各 1/4）：
 
 | 测量结果 | 传输信息 | Bob 的态 | Bob 的门 |
 |:---:|:---:|:---|:---:|
-| $|\Phi^+\rangle$ | 00 | $\alpha|0\rangle + \beta|1\rangle$ | $I$ |
-| $|\Phi^-\rangle$ | 10 | $\alpha|0\rangle - \beta|1\rangle$ | $Z$ |
-| $|\Psi^+\rangle$ | 01 | $\alpha|1\rangle + \beta|0\rangle$ | $X$ |
-| $|\Psi^-\rangle$ | 11 | $\alpha|1\rangle - \beta|0\rangle$ | $ZX$ |
+| $\vert \Phi^+\rangle$ | 00 | $\alpha\lvert 0\rangle + \beta\lvert 1\rangle$ | $I$ |
+| $\vert \Phi^-\rangle$ | 10 | $\alpha\lvert 0\rangle - \beta\lvert 1\rangle$ | $Z$ |
+| $\vert \Psi^+\rangle$ | 01 | $\alpha\lvert 1\rangle + \beta\lvert 0\rangle$ | $X$ |
+| $\vert \Psi^-\rangle$ | 11 | $\alpha\lvert 1\rangle - \beta\lvert 0\rangle$ | $ZX$ |
 
 Bob 根据收到的两比特信息应用对应的门，恢复出 $\alpha|0\rangle + \beta|1\rangle$。
 

@@ -378,12 +378,12 @@ $$
 
 | 步骤 | 操作 | 态（忽略辅助寄存器和全局相位） |
 |------|------|-------------------------------|
-| $\psi_0$ | 初始 | $|0\rangle$ |
-| $\psi_1$ | $H^{\otimes 2}$ | $\frac{|0\rangle+|1\rangle}{\sqrt{2}}$ |
-| $\psi_2$ | $O_f$（常数） | $\frac{|0\rangle+|1\rangle}{\sqrt{2}}$ |
-| $\psi_2$ | $O_f$（平衡） | $\frac{|0\rangle-|1\rangle}{\sqrt{2}}$ |
-| $\psi_3$ | $H$（常数） | $|0\rangle$ |
-| $\psi_3$ | $H$（平衡） | $|1\rangle$ |
+| $\psi_0$ | 初始 | $\lvert 0\rangle$ |
+| $\psi_1$ | $H^{\otimes 2}$ | $\frac{\lvert 0\rangle+\lvert 1\rangle}{\sqrt{2}}$ |
+| $\psi_2$ | $O_f$（常数） | $\frac{\lvert 0\rangle+\lvert 1\rangle}{\sqrt{2}}$ |
+| $\psi_2$ | $O_f$（平衡） | $\frac{\lvert 0\rangle-\lvert 1\rangle}{\sqrt{2}}$ |
+| $\psi_3$ | $H$（常数） | $\lvert 0\rangle$ |
+| $\psi_3$ | $H$（平衡） | $\lvert 1\rangle$ |
 | $\psi_4$ | 测量 | 常数→0，平衡→1 |
 
 ### 1.3.5 为什么不需要第二次查询？

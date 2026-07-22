@@ -380,8 +380,8 @@ $$
 | 适用范围 | 纯态 | 纯态和混态 |
 | 数学形式 | 一阶线性微分方程 | 一阶线性微分方程 |
 | 是否可逆 | 是 | 是 |
-| 保持纯度 | 自动满足（$|\psi\rangle$ 保持模为 1） | $\frac{d}{dt}\text{Tr}(\rho^2) = 0$ |
-| 算符形式 | $i\hbar\frac{d}{dt}|\psi\rangle = H|\psi\rangle$ | $i\hbar\frac{d\rho}{dt} = [H, \rho]$ |
+| 保持纯度 | 自动满足（$\lvert \psi\rangle$ 保持模为 1） | $\frac{d}{dt}\text{Tr}(\rho^2) = 0$ |
+| 算符形式 | $i\hbar\frac{d}{dt}\lvert \psi\rangle = H\lvert \psi\rangle$ | $i\hbar\frac{d\rho}{dt} = [H, \rho]$ |
 
 **例 3.21** 使用冯·诺依曼方程验证：对于 $H = \omega Z$，初始态 $\rho(0) = |+\rangle\langle +|$，求 $\rho(t)$。
 
@@ -786,8 +786,8 @@ $D = 0.5$
 
 | 度量 | 含义 | 范围 | 纯态-纯态 | 纯态-最大混态 |
 |------|------|------|-----------|-------------|
-| 保真度 $F$ | 两个态有多"像" | $[0, 1]$ | $|\langle\psi|\phi\rangle|$ | $1/\sqrt{2}$ |
-| 迹距离 $D$ | 最优区分概率 | $[0, 1]$ | $\sqrt{1 - |\langle\psi|\phi\rangle|^2}$ | $1/2$ |
+| 保真度 $F$ | 两个态有多"像" | $[0, 1]$ | $\vert \langle\psi\lvert \phi\rangle\vert $ | $1/\sqrt{2}$ |
+| 迹距离 $D$ | 最优区分概率 | $[0, 1]$ | $\sqrt{1 - \vert \langle\psi\lvert \phi\rangle\vert ^2}$ | $1/2$ |
 
 **例 3.43（具体实验场景）** 考虑一个量子存储器。开始时存储 $|0\rangle$（$\rho = |0\rangle\langle 0|$）。经过一段时间后，由于退相干，它变成 $\sigma = (1-p)|0\rangle\langle 0| + p|1\rangle\langle 1|$。求保真度和迹距离作为 $p$ 的函数：
 

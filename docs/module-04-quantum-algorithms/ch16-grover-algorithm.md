@@ -928,7 +928,7 @@ $$
 
 | 对比维度 | Grover算法 | 振幅放大 |
 |---------|-----------|---------|
-| 初始态 | $H^{\otimes n}|0\rangle$ | ? |
+| 初始态 | $H^{\otimes n}\lvert 0\rangle$ | ? |
 | Oracle | 翻转标记项相位 | ? |
 | 加速 | $O(\sqrt{N})$ | ? |
 2. 为什么说 Grover 算法是振幅放大在 $\mathcal{A}=H^{\otimes n}$ 时的特例？

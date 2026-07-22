@@ -595,7 +595,7 @@ $$
 | 性质 | 位翻转码 | 相位翻转码 |
 |------|---------|-----------|
 | 纠正错误 | $X$（比特翻转） | $Z$（相位翻转） |
-| 逻辑基矢 | $|000\rangle, |111\rangle$ | $|+++\rangle, |---\rangle$ |
+| 逻辑基矢 | $\lvert 000\rangle, \lvert 111\rangle$ | $\lvert +++\rangle, \lvert ---\rangle$ |
 | 稳定子生成元 | $ZZI, IZZ$ | $XXI, IXX$ |
 | 逻辑 $X_L$ | $XXX$ | $XII$ |
 | 逻辑 $Z_L$ | $ZII$ | $ZZZ$ |

@@ -135,12 +135,12 @@ $$
 
 | 状态 | $\theta$ | $\varphi$ | 球面坐标 | 几何位置 |
 |:---|:---:|:---:|:---|:---|
-| $|0\rangle$ | 0 | — | $(0,0,1)$ | 北极 |
-| $|1\rangle$ | $\pi$ | — | $(0,0,-1)$ | 南极 |
-| $|+\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)$ | $\pi/2$ | 0 | $(1,0,0)$ | $x$ 轴正向 |
-| $|-\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)$ | $\pi/2$ | $\pi$ | $(-1,0,0)$ | $x$ 轴负向 |
-| $|+_y\rangle = \frac{1}{\sqrt{2}}(|0\rangle + i|1\rangle)$ | $\pi/2$ | $\pi/2$ | $(0,1,0)$ | $y$ 轴正向 |
-| $|-_y\rangle = \frac{1}{\sqrt{2}}(|0\rangle - i|1\rangle)$ | $\pi/2$ | $3\pi/2$ | $(0,-1,0)$ | $y$ 轴负向 |
+| $\lvert 0\rangle$ | 0 | — | $(0,0,1)$ | 北极 |
+| $\lvert 1\rangle$ | $\pi$ | — | $(0,0,-1)$ | 南极 |
+| $\lvert +\rangle = \frac{1}{\sqrt{2}}(\lvert 0\rangle + \lvert 1\rangle)$ | $\pi/2$ | 0 | $(1,0,0)$ | $x$ 轴正向 |
+| $\lvert -\rangle = \frac{1}{\sqrt{2}}(\lvert 0\rangle - \lvert 1\rangle)$ | $\pi/2$ | $\pi$ | $(-1,0,0)$ | $x$ 轴负向 |
+| $\lvert +_y\rangle = \frac{1}{\sqrt{2}}(\lvert 0\rangle + i\lvert 1\rangle)$ | $\pi/2$ | $\pi/2$ | $(0,1,0)$ | $y$ 轴正向 |
+| $\lvert -_y\rangle = \frac{1}{\sqrt{2}}(\lvert 0\rangle - i\lvert 1\rangle)$ | $\pi/2$ | $3\pi/2$ | $(0,-1,0)$ | $y$ 轴负向 |
 
 **从振幅到球面坐标的转换**：
 
@@ -318,9 +318,9 @@ Z 门给 $|1\rangle$ 分量加上一个 $-1$ 相位（即 $\pi$ 相位），而 
 
 | 门 | 矩阵 | 几何旋转 | 本征值 | 本征态 |
 |:---|:---|:---:|:---:|:---|
-| $X$ | $\begin{pmatrix}0&1\\1&0\end{pmatrix}$ | 绕 $x$ 轴转 $\pi$ | $\pm 1$ | $|\pm\rangle$ |
-| $Y$ | $\begin{pmatrix}0&-i\\i&0\end{pmatrix}$ | 绕 $y$ 轴转 $\pi$ | $\pm 1$ | $|\pm_y\rangle$ |
-| $Z$ | $\begin{pmatrix}1&0\\0&-1\end{pmatrix}$ | 绕 $z$ 轴转 $\pi$ | $\pm 1$ | $|0\rangle,|1\rangle$ |
+| $X$ | $\begin{pmatrix}0&1\\1&0\end{pmatrix}$ | 绕 $x$ 轴转 $\pi$ | $\pm 1$ | $\vert \pm\rangle$ |
+| $Y$ | $\begin{pmatrix}0&-i\\i&0\end{pmatrix}$ | 绕 $y$ 轴转 $\pi$ | $\pm 1$ | $\vert \pm_y\rangle$ |
+| $Z$ | $\begin{pmatrix}1&0\\0&-1\end{pmatrix}$ | 绕 $z$ 轴转 $\pi$ | $\pm 1$ | $\lvert 0\rangle,\lvert 1\rangle$ |
 
 ### 1.2.5 Hadamard 门
 

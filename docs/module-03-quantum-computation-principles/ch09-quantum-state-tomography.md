@@ -342,10 +342,10 @@ $$
 
 | 结果 | 计数 |
 |:---|:---:|
-| $|00\rangle$ | 180 |
-| $|01\rangle$ | 60 |
-| $|10\rangle$ | 40 |
-| $|11\rangle$ | 120 |
+| $\lvert 00\rangle$ | 180 |
+| $\lvert 01\rangle$ | 60 |
+| $\lvert 10\rangle$ | 40 |
+| $\lvert 11\rangle$ | 120 |
 
 求 $\langle ZZ \rangle = \text{Tr}(\rho \, Z \otimes Z)$。
 
@@ -610,10 +610,10 @@ $$
 
 | 结果 | 计数 |
 |:---|:---:|
-| $|++\rangle$ | 50 |
-| $|+-\rangle$ | 50 |
-| $|-+\rangle$ | 50 |
-| $|--\rangle$ | 50 |
+| $\lvert ++\rangle$ | 50 |
+| $\lvert +-\rangle$ | 50 |
+| $\lvert -+\rangle$ | 50 |
+| $\lvert --\rangle$ | 50 |
 
 求 $\langle XX \rangle$ 的值。
 

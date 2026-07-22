@@ -629,12 +629,12 @@ $$
 
 | 你熟悉的符号 | 狄拉克符号 | 说明 |
 |:---:|:---:|:---|
-| $v$（列向量） | $|v\rangle$ | 右矢 |
-| $v^\dagger$（共轭转置） | $\langle v|$ | 左矢 |
-| $u^\dagger v$（内积） | $\langle u | v \rangle$ | 括号 |
-| $u v^\dagger$（外积） | $|u\rangle \langle v|$ | 外积 |
-| $A|v\rangle$ | $A|v\rangle$ | 矩阵乘向量 |
-| $\langle u|A|v\rangle$ | $\langle u|A|v\rangle$ | 矩阵元 |
+| $v$（列向量） | $\lvert v\rangle$ | 右矢 |
+| $v^\dagger$（共轭转置） | $\langle v\rvert$ | 左矢 |
+| $u^\dagger v$（内积） | $\langle u \vert v \rangle$ | 括号 |
+| $u v^\dagger$（外积） | $\lvert u\rangle \langle v\rvert$ | 外积 |
+| $A\lvert v\rangle$ | $A\lvert v\rangle$ | 矩阵乘向量 |
+| $\langle u\vert A\vert v\rangle$ | $\langle u\vert A\vert v\rangle$ | 矩阵元 |
 | $\overline{c}$ | $c^*$ | 复共轭 |
 
 ### 1.4.7 狄拉克符号的代数操作
@@ -1906,15 +1906,15 @@ $$
 
 | 符号 | 含义 | 等价线性代数表示 |
 |:---:|:---|:---:|
-| $|v\rangle$ | 右矢（列向量） | $v \in \mathbb{C}^n$ |
-| $\langle v|$ | 左矢（行向量共轭转置） | $v^\dagger$ |
+| $\lvert v\rangle$ | 右矢（列向量） | $v \in \mathbb{C}^n$ |
+| $\langle v\rvert$ | 左矢（行向量共轭转置） | $v^\dagger$ |
 | $\langle u \mid v \rangle$ | 内积 | $u^\dagger v$ |
-| $|u\rangle \langle v|$ | 外积（矩阵） | $u v^\dagger$ |
+| $\lvert u\rangle \langle v\rvert$ | 外积（矩阵） | $u v^\dagger$ |
 | $\langle u \mid A \mid v \rangle$ | 矩阵元 | $u^\dagger A v$ |
-| $A|v\rangle$ | 矩阵乘向量 | $A v$ |
-| $\sum_i |i\rangle\langle i|$ | 完备性关系 | $I$ |
-| $|i\rangle\langle i|$ | 投影算子 | $P_i$ |
-| $|a\rangle \otimes |b\rangle$ | 张量积 | $a \otimes b$ |
+| $A\lvert v\rangle$ | 矩阵乘向量 | $A v$ |
+| $\sum_i \lvert i\rangle\langle i\rvert$ | 完备性关系 | $I$ |
+| $\lvert i\rangle\langle i\rvert$ | 投影算子 | $P_i$ |
+| $\lvert a\rangle \otimes \lvert b\rangle$ | 张量积 | $a \otimes b$ |
 | $A \otimes B$ | 矩阵张量积 | 克罗内克积 |
 
 ### 1.11.3 关键公式
