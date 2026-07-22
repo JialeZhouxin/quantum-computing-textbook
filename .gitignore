@@ -1,10 +1,30 @@
+# Python
 __pycache__/
 *.pyc
 *.pyo
-fix_basic*.py
-fix_all.py
+.venv/
+venv/
+
+# Build output
+site/
+
+# Local style library clone
+awesome-design-md/
+
+# One-off repair / audit scripts (keep out of public book repo)
+fix_*.py
 check_*.py
 verify_fix.py
+scan_*.py
+polish_*.py
+audit_*.py
 sedqpmX3s
-awesome-design-md/
-site/
+_skill_*.md
+
+# Duplicate trees left from pre-docs migration
+# Canonical source lives under docs/
+/module-*/
+/solutions/
+/javascripts/
+/stylesheets/
+/README.md

@@ -5,6 +5,10 @@ site_dir: site
 site_name: 量子计算导论
 site_description: 从基础数学到量子硬件的系统性量子计算教程
 site_author: quantum-computing-textbook
+site_url: https://jialezhouxin.github.io/quantum-computing-textbook/
+repo_url: https://github.com/JialeZhouxin/quantum-computing-textbook
+repo_name: JialeZhouxin/quantum-computing-textbook
+edit_uri: edit/master/docs/
 copyright: CC BY-NC 4.0
 
 theme:
@@ -38,7 +42,7 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/
+      link: https://github.com/JialeZhouxin/quantum-computing-textbook
   generator: false
 
 markdown_extensions:
