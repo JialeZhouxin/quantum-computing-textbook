@@ -115,15 +115,19 @@ $$
 **定义 1.2（量子Oracle）** 一个量子Oracle是一个实现布尔函数 $f: \{0,1\}^n \to \{0,1\}^m$ 的幺正算符 $O_f$。最常见的两种形式是：
 
 1. **标准形式**（可逆计算方式）：
-   $$
-   O_f |x\rangle |y\rangle = |x\rangle |y \oplus f(x)\rangle
-   $$
+
+$$
+O_f |x\rangle |y\rangle = |x\rangle |y \oplus f(x)\rangle
+$$
+
    其中 $\oplus$ 是按位异或。这种形式保证酉性。
 
 2. **相位形式**：
-   $$
-   O_f |x\rangle = (-1)^{f(x)} |x\rangle
-   $$
+
+$$
+O_f |x\rangle = (-1)^{f(x)} |x\rangle
+$$
+
    当 $f(x)=1$ 时翻转相位，$f(x)=0$ 时不变。
 
 > **为什么需要 $|y\rangle$ 寄存器？** 因为 $\sum_x \alpha_x |x\rangle \to \sum_x \alpha_x |f(x)\rangle$ 一般不是幺正变换——丢失了信息（不同 $x$ 可能映射到相同 $f(x)$）。引入辅助寄存器 $|y\rangle$ 并通过异或操作保持可逆性。
@@ -317,15 +321,15 @@ $$
 
 - 如果 $f(0)=f(1)=0$，则 $(-1)^{f(0)} = (-1)^{f(1)} = 1$，所以：
 
-  $$
-  |\psi_2\rangle = \frac{1}{\sqrt{2}}\left(|0\rangle + |1\rangle\right) \otimes |-\rangle
-  $$
+$$
+|\psi_2\rangle = \frac{1}{\sqrt{2}}\left(|0\rangle + |1\rangle\right) \otimes |-\rangle
+$$
 
 - 如果 $f(0)=f(1)=1$，则 $(-1)^{f(0)} = (-1)^{f(1)} = -1$，所以：
 
-  $$
-  |\psi_2\rangle = \frac{1}{\sqrt{2}}\left(-|0\rangle - |1\rangle\right) \otimes |-\rangle = -\frac{1}{\sqrt{2}}\left(|0\rangle + |1\rangle\right) \otimes |-\rangle
-  $$
+$$
+|\psi_2\rangle = \frac{1}{\sqrt{2}}\left(-|0\rangle - |1\rangle\right) \otimes |-\rangle = -\frac{1}{\sqrt{2}}\left(|0\rangle + |1\rangle\right) \otimes |-\rangle
+$$
 
   这里全局相位 $-1$ 不影响测量结果，所以两种情况在测量上不可区分——都是 $|+\rangle = \frac{|0\rangle+|1\rangle}{\sqrt{2}}$。
 
@@ -333,15 +337,15 @@ $$
 
 - 如果 $f(0)=0, f(1)=1$，则 $(-1)^{f(0)} = 1$，$(-1)^{f(1)} = -1$：
 
-  $$
-  |\psi_2\rangle = \frac{1}{\sqrt{2}}\left(|0\rangle - |1\rangle\right) \otimes |-\rangle
-  $$
+$$
+|\psi_2\rangle = \frac{1}{\sqrt{2}}\left(|0\rangle - |1\rangle\right) \otimes |-\rangle
+$$
 
 - 如果 $f(0)=1, f(1)=0$，则 $(-1)^{f(0)} = -1$，$(-1)^{f(1)} = 1$：
 
-  $$
-  |\psi_2\rangle = \frac{1}{\sqrt{2}}\left(-|0\rangle + |1\rangle\right) \otimes |-\rangle = -\frac{1}{\sqrt{2}}\left(|0\rangle - |1\rangle\right) \otimes |-\rangle
-  $$
+$$
+|\psi_2\rangle = \frac{1}{\sqrt{2}}\left(-|0\rangle + |1\rangle\right) \otimes |-\rangle = -\frac{1}{\sqrt{2}}\left(|0\rangle - |1\rangle\right) \otimes |-\rangle
+$$
 
   全局相位 $-1$ 再次不影响测量，所以情况B都是 $|-\rangle = \frac{|0\rangle-|1\rangle}{\sqrt{2}}$。
 
@@ -351,15 +355,15 @@ $$
 
 - **常数函数**（主寄存器态为 $|+\rangle$）：
 
-  $$
-  H|+\rangle = H\frac{|0\rangle+|1\rangle}{\sqrt{2}} = \frac{1}{\sqrt{2}}\left(\frac{|0\rangle+|1\rangle}{\sqrt{2}} + \frac{|0\rangle-|1\rangle}{\sqrt{2}}\right) = |0\rangle
-  $$
+$$
+H|+\rangle = H\frac{|0\rangle+|1\rangle}{\sqrt{2}} = \frac{1}{\sqrt{2}}\left(\frac{|0\rangle+|1\rangle}{\sqrt{2}} + \frac{|0\rangle-|1\rangle}{\sqrt{2}}\right) = |0\rangle
+$$
 
 - **平衡函数**（主寄存器态为 $|-\rangle$）：
 
-  $$
-  H|-\rangle = H\frac{|0\rangle-|1\rangle}{\sqrt{2}} = \frac{1}{\sqrt{2}}\left(\frac{|0\rangle+|1\rangle}{\sqrt{2}} - \frac{|0\rangle-|1\rangle}{\sqrt{2}}\right) = |1\rangle
-  $$
+$$
+H|-\rangle = H\frac{|0\rangle-|1\rangle}{\sqrt{2}} = \frac{1}{\sqrt{2}}\left(\frac{|0\rangle+|1\rangle}{\sqrt{2}} - \frac{|0\rangle-|1\rangle}{\sqrt{2}}\right) = |1\rangle
+$$
 
 **第4步：测量**
 
@@ -511,17 +515,17 @@ $$
 
 - **如果 $f$ 是常数函数**：设 $f(x) = c$（$c=0$ 或 $1$）。则 $(-1)^{f(x)} = (-1)^c$ 对所有 $x$ 相同：
 
-  $$
-  \alpha_0 = \frac{1}{2^n} \sum_{x=0}^{2^n-1} (-1)^c = (-1)^c
-  $$
+$$
+\alpha_0 = \frac{1}{2^n} \sum_{x=0}^{2^n-1} (-1)^c = (-1)^c
+$$
 
   所以 $|\alpha_0|^2 = 1$。测量得到 $|0\rangle^{\otimes n}$ 的概率为 **1**。
 
 - **如果 $f$ 是平衡函数**：恰好在 $2^{n-1}$ 个输入上 $f(x)=0$，在另外 $2^{n-1}$ 个输入上 $f(x)=1$。所以：
 
-  $$
-  \alpha_0 = \frac{1}{2^n} \left( \sum_{x:f(x)=0} 1 + \sum_{x:f(x)=1} (-1) \right) = \frac{1}{2^n} (2^{n-1} - 2^{n-1}) = 0
-  $$
+$$
+\alpha_0 = \frac{1}{2^n} \left( \sum_{x:f(x)=0} 1 + \sum_{x:f(x)=1} (-1) \right) = \frac{1}{2^n} (2^{n-1} - 2^{n-1}) = 0
+$$
 
   测量得到 $|0\rangle^{\otimes n}$ 的概率为 **0**。换句话说，你**不可能**测到全零态。
 
@@ -794,7 +798,6 @@ $$
 因为 $f$ 是2对1的（$f(x)=f(x\oplus s)$），每个输出值恰好对应两个输入 $x$ 和 $x\oplus s$。对于固定的输出值 $y$：
 
 $$ \sum_{x: f(x)=y} (-1)^{x \cdot z} |z\rangle |y\rangle = \left[(-1)^{x_0 \cdot z} + (-1)^{(x_0 \oplus s) \cdot z}\right] |z\rangle |y\rangle $$
-
 其中 $x_0$ 是某个代表元。括号内的因子为：
 
 $$

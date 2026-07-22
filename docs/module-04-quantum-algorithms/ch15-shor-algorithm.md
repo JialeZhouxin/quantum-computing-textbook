@@ -211,21 +211,21 @@ Shor算法的整体框架包含量子部分和经典部分。下面给出详细�
    - **函数寄存器**：$m = \lceil \log_2 N \rceil$ 个量子比特，置为 $|1\rangle$（表示 $a^0 \bmod N = 1$）
 7. 对计数寄存器所有量子比特做 Hadamard 变换，得到均匀叠加态：
 
-   $$
-   |\psi_0\rangle = \frac{1}{\sqrt{2^n}} \sum_{x=0}^{2^n-1} |x\rangle \otimes |1\rangle
-   $$
+$$
+|\psi_0\rangle = \frac{1}{\sqrt{2^n}} \sum_{x=0}^{2^n-1} |x\rangle \otimes |1\rangle
+$$
 
 8. 应用受控模指数运算 $U_f$：
 
-   $$
-   U_f |x\rangle |y\rangle = |x\rangle |y \cdot a^x \bmod N\rangle
-   $$
+$$
+U_f |x\rangle |y\rangle = |x\rangle |y \cdot a^x \bmod N\rangle
+$$
 
    得到：
 
-   $$
-   |\psi_1\rangle = \frac{1}{\sqrt{2^n}} \sum_{x=0}^{2^n-1} |x\rangle |a^x \bmod N\rangle
-   $$
+$$
+|\psi_1\rangle = \frac{1}{\sqrt{2^n}} \sum_{x=0}^{2^n-1} |x\rangle |a^x \bmod N\rangle
+$$
 
 9. 对计数寄存器应用逆QFT（QFT$^\dagger$）。
 10. 测量计数寄存器，得到经典输出 $c$。
@@ -756,7 +756,7 @@ $$
 连分式展开：
 
 $$
-1365/2048 = 0 + \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{114}}}} 
+1365/2048 = 0 + \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{114}}}}
 $$
 
 收敛子：$1/1, 1/2, 2/3, 229/341, \ldots$
@@ -923,15 +923,15 @@ Shor在1994年的同一篇论文中给出了离散对数问题的量子算法。
 1. 准备三个寄存器，初始化为 $|0\rangle^{\otimes n} |0\rangle^{\otimes n} |1\rangle_G$。
 2. 对前两个寄存器做 Hadamard 变换：
 
-   $$
-   \frac{1}{2^n} \sum_{a=0}^{2^n-1} \sum_{b=0}^{2^n-1} |a\rangle |b\rangle |1\rangle
-   $$
+$$
+\frac{1}{2^n} \sum_{a=0}^{2^n-1} \sum_{b=0}^{2^n-1} |a\rangle |b\rangle |1\rangle
+$$
 
 3. 计算 $g^a h^{-b} = g^{a - xb}$，存储在第三个寄存器：
 
-   $$
-   \frac{1}{2^n} \sum_{a,b} |a\rangle |b\rangle |g^{a - xb}\rangle
-   $$
+$$
+\frac{1}{2^n} \sum_{a,b} |a\rangle |b\rangle |g^{a - xb}\rangle
+$$
 
 4. 对前两个寄存器做逆QFT。
 5. 测量前两个寄存器，得到 $(c_1, c_2)$。

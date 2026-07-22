@@ -85,6 +85,7 @@
 **例 1.1** 用布尔代数化简 $F = \bar{A}B + A\bar{B} + AB$。
 
 解：
+
 $$
 \begin{aligned}
 F &= \bar{A}B + A\bar{B} + AB \\
@@ -234,12 +235,10 @@ $$
 
 对上面的例子，输出为 1 的行是 001、010、100、111，所以：
 $$F = \bar{A}\bar{B}C + \bar{A}B\bar{C} + A\bar{B}\bar{C} + ABC$$
-
 2. **最大项之积（POS）**：找出所有输出为 0 的行，每个行对应一个和项（最大项），然后将这些和项相乘（AND）。
 
 输出为 0 的行是 000、011、101、110，所以：
 $$F = (A+B+C)(A+\bar{B}+\bar{C})(\bar{A}+B+\bar{C})(\bar{A}+\bar{B}+C)$$
-
 > **选择哪种？** SOP 在逻辑设计中更常用，因为它更容易用 AND-OR 两级电路实现。但两者在理论上是等价的。
 
 ---
@@ -517,7 +516,6 @@ add x1, x2, x3    # 将寄存器 x2 和 x3 的值相加，结果写入 x1
 **非确定性图灵机（Nondeterministic Turing Machine, NDTM）**
 
 非确定性图灵机与 DTM 的唯一区别在于转移函数：
-
 $$\delta: Q \times \Gamma \to \mathcal{P}(Q \times \Gamma \times \{L, R\})$$
 
 $\mathcal{P}$ 表示幂集。也就是说，在每个状态下，可能有**多个**下一步选择——机器会"猜测"哪条路能得到接受。

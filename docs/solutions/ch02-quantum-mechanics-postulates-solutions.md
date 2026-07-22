@@ -49,16 +49,19 @@ $\lambda = -1$：$\begin{pmatrix}1 & -i\\ i & 1\end{pmatrix}v = 0$，$v_1 - i v_
 **解：**
 
 设 $|\lambda_i\rangle$ 是 $A$ 的本征态，本征值 $\lambda_i$：
+
 $$
 A|\lambda_i\rangle = \lambda_i|\lambda_i\rangle
 $$
 
 将 $B$ 作用到本征方程两边：
+
 $$
 BA|\lambda_i\rangle = B\lambda_i|\lambda_i\rangle = \lambda_i B|\lambda_i\rangle
 $$
 
 由 $[A, B] = 0$ 得 $AB = BA$，因此：
+
 $$
 A(B|\lambda_i\rangle) = BA|\lambda_i\rangle = \lambda_i (B|\lambda_i\rangle)
 $$
@@ -78,11 +81,13 @@ $$
 $$
 
 由 $Z|+\rangle = |-\rangle$：
+
 $$
 |\psi(t)\rangle = \cos(\omega t/2)|+\rangle - i\sin(\omega t/2)|-\rangle
 $$
 
 用 $|0\rangle, |1\rangle$ 展开：
+
 $$
 |\psi(t)\rangle = \frac{\cos(\omega t/2) - i\sin(\omega t/2)}{\sqrt{2}}|0\rangle + \frac{\cos(\omega t/2) + i\sin(\omega t/2)}{\sqrt{2}}|1\rangle
 $$
@@ -94,11 +99,13 @@ $$
 **解：**
 
 假设存在一个克隆算符 $U$，使得对任意 $|\psi\rangle$：
+
 $$
 U(|\psi\rangle \otimes |0\rangle) = |\psi\rangle \otimes |\psi\rangle
 $$
 
 对两个不同态 $|\psi\rangle$ 和 $|\phi\rangle$ 分别作用：
+
 $$
 U(|\psi\rangle|0\rangle) = |\psi\rangle|\psi\rangle,\quad U(|\phi\rangle|0\rangle) = |\phi\rangle|\phi\rangle
 $$
@@ -118,6 +125,7 @@ $$
 定义 $|f\rangle = (A - \langle A\rangle)|\psi\rangle$，$|g\rangle = (B - \langle B\rangle)|\psi\rangle$。
 
 由 Cauchy-Schwarz 不等式：
+
 $$
 \langle f|f\rangle\langle g|g\rangle \ge |\langle f|g\rangle|^2
 $$
@@ -127,11 +135,13 @@ $\langle f|f\rangle = (\Delta A)^2$，$\langle g|g\rangle = (\Delta B)^2$。
 $\langle f|g\rangle = \langle AB\rangle - \langle A\rangle\langle B\rangle$。
 
 将 $\langle f|g\rangle$ 分解为实部和虚部：
+
 $$
 |\langle f|g\rangle|^2 \ge |\text{Im}\langle f|g\rangle|^2 = \left|\frac{\langle f|g\rangle - \langle g|f\rangle}{2i}\right|^2
 $$
 
 $\langle f|g\rangle - \langle g|f\rangle = \langle[A, B]\rangle$。代入即得：
+
 $$
 (\Delta A)^2(\Delta B)^2 \ge \left|\frac{\langle[A, B]\rangle}{2i}\right|^2 = \frac{1}{4}|\langle[A, B]\rangle|^2
 $$
@@ -143,6 +153,7 @@ $$
 **解：**
 
 布洛赫球面上纯态的一般形式：
+
 $$
 |\psi\rangle = \cos\frac{\theta}{2}|0\rangle + e^{i\phi}\sin\frac{\theta}{2}|1\rangle
 $$
@@ -162,12 +173,15 @@ R_y(\theta)|0\rangle = \cos(\theta/2)|0\rangle + \sin(\theta/2)|1\rangle
 $$
 
 测量 $X$ 基，测得 $|+\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)$ 的概率：
+
 $$
 P(+) = |\langle +|R_y(\theta)|0\rangle|^2 = \left|\frac{1}{\sqrt{2}}(\langle 0| + \langle 1|)(\cos(\theta/2)|0\rangle + \sin(\theta/2)|1\rangle)\right|^2
 $$
+
 $$
 = \left|\frac{1}{\sqrt{2}}(\cos\frac{\theta}{2} + \sin\frac{\theta}{2})\right|^2 = \frac{1}{2}\left(\cos\frac{\theta}{2} + \sin\frac{\theta}{2}\right)^2
 $$
+
 $$
 = \frac{1}{2}\left(1 + 2\sin\frac{\theta}{2}\cos\frac{\theta}{2}\right) = \frac{1 + \sin\theta}{2}
 $$
@@ -235,6 +249,7 @@ POVM 的优势：当需要区分的态不正交时，POVM 可以在「确定性�
 **例子**：区分 $|\psi_1\rangle = |0\rangle$ 和 $|\psi_2\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)$。
 
 用投影测量无法完美区分。用 POVM：
+
 $$
 E_1 = \frac{\sqrt{2}}{1+\sqrt{2}}|1\rangle\langle 1|,\quad
 E_2 = \frac{\sqrt{2}}{1+\sqrt{2}}|-\rangle\langle -|,\quad
@@ -248,20 +263,25 @@ $E_3$ 对应"不确定"结论。当态为 $|\psi_1\rangle$ 时，测到 $E_1$ �
 **解：**
 
 总哈密顿量（JC 模型）：
+
 $$
 H = \frac{\hbar\omega_q}{2}\sigma_z + \hbar\omega_r a^\dagger a + \hbar g(\sigma_+ + \sigma_-)(a + a^\dagger)
 $$
 
 展开耦合项：
+
 $$
 \sigma_+ a^\dagger: \text{同时激发量子比特和谐振子（能量不守恒，快速振荡）}
 $$
+
 $$
 \sigma_- a: \text{同时退激发（能量不守恒）}
 $$
+
 $$
 \sigma_+ a: \text{量子比特激发，谐振子退激发（近共振）}
 $$
+
 $$
 \sigma_- a^\dagger: \text{量子比特退激发，谐振子激发（近共振）}
 $$
@@ -271,6 +291,7 @@ $$
 **RWA 适用条件**：耦合强度 $g$ 远小于失谐 $\Delta = |\omega_q - \omega_r|$，且 $\omega_q + \omega_r$ 远大于 $\omega_q - \omega_r$。在此条件下，快速振荡项在时间平均下贡献可忽略。
 
 在 RWA 下：
+
 $$
 H_{\text{RWA}} = \frac{\hbar\omega_q}{2}\sigma_z + \hbar\omega_r a^\dagger a + \hbar g(\sigma_+ a + \sigma_- a^\dagger)
 $$

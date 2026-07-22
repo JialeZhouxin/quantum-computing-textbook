@@ -114,11 +114,13 @@ $R_z(\theta_1)R_z(\theta_2) = \begin{pmatrix}e^{-i\theta_1/2}&0\\0&e^{i\theta_1/
 $H = \frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\1&-1\end{pmatrix}$，$\det H = -1$。调整相位使行列式为 1：$H' = e^{i\pi/2}H = \frac{1}{\sqrt{2}}\begin{pmatrix}i&i\\i&-i\end{pmatrix}$。
 
 展开 $R_z(\beta)R_y(\gamma)R_z(\delta)$：
+
 $$
 \begin{pmatrix}e^{-i\beta/2}&0\\0&e^{i\beta/2}\end{pmatrix}
 \begin{pmatrix}\cos(\gamma/2)&-\sin(\gamma/2)\\\sin(\gamma/2)&\cos(\gamma/2)\end{pmatrix}
 \begin{pmatrix}e^{-i\delta/2}&0\\0&e^{i\delta/2}\end{pmatrix}
 $$
+
 比较参数可得一个解：
 $\alpha = \pi/2$，$\beta = \pi/2$，$\gamma = \pi/2$，$\delta = 0$。
 

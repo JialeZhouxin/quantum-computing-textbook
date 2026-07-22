@@ -20,6 +20,7 @@
 **1.2** 将布尔表达式 $F = AB + A\bar{B} + \bar{A}B$ 化简为最简形式。
 
 **解：**
+
 $$
 F = AB + A\bar{B} + \bar{A}B = A(B + \bar{B}) + \bar{A}B = A \cdot 1 + \bar{A}B = A + \bar{A}B = A + B
 $$

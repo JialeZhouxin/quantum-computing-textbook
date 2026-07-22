@@ -683,18 +683,23 @@ Shor码有8个稳定子生成元（因为 $n=9$, $k=1$, $n-k=8$）：
 $$
 g_1 = Z \otimes Z \otimes I \otimes I \otimes I \otimes I \otimes I \otimes I \otimes I
 $$
+
 $$
 g_2 = I \otimes Z \otimes Z \otimes I \otimes I \otimes I \otimes I \otimes I \otimes I
 $$
+
 $$
 g_3 = I \otimes I \otimes I \otimes Z \otimes Z \otimes I \otimes I \otimes I \otimes I
 $$
+
 $$
 g_4 = I \otimes I \otimes I \otimes I \otimes Z \otimes Z \otimes I \otimes I \otimes I
 $$
+
 $$
 g_5 = I \otimes I \otimes I \otimes I \otimes I \otimes I \otimes Z \otimes Z \otimes I
 $$
+
 $$
 g_6 = I \otimes I \otimes I \otimes I \otimes I \otimes I \otimes I \otimes Z \otimes Z
 $$
@@ -704,6 +709,7 @@ $$
 $$
 g_7 = X \otimes X \otimes X \otimes X \otimes X \otimes X \otimes I \otimes I \otimes I
 $$
+
 $$
 g_8 = I \otimes I \otimes I \otimes X \otimes X \otimes X \otimes X \otimes X \otimes X
 $$
@@ -713,6 +719,7 @@ $$
 $$
 X_L = X \otimes X \otimes X \otimes X \otimes X \otimes X \otimes X \otimes X \otimes X
 $$
+
 $$
 Z_L = Z \otimes Z \otimes Z \otimes Z \otimes Z \otimes Z \otimes Z \otimes Z \otimes Z
 $$
@@ -896,9 +903,11 @@ Steane码有6个稳定子生成元（$n-k = 7-1 = 6$）：
 $$
 g_1^X = X \otimes X \otimes X \otimes X \otimes I \otimes I \otimes I
 $$
+
 $$
 g_2^X = X \otimes X \otimes I \otimes I \otimes X \otimes X \otimes I
 $$
+
 $$
 g_3^X = X \otimes I \otimes X \otimes I \otimes X \otimes I \otimes X
 $$
@@ -908,9 +917,11 @@ $$
 $$
 g_1^Z = Z \otimes Z \otimes Z \otimes Z \otimes I \otimes I \otimes I
 $$
+
 $$
 g_2^Z = Z \otimes Z \otimes I \otimes I \otimes Z \otimes Z \otimes I
 $$
+
 $$
 g_3^Z = Z \otimes I \otimes Z \otimes I \otimes Z \otimes I \otimes Z
 $$
@@ -922,6 +933,7 @@ $$
 $$
 X_L = X \otimes X \otimes X \otimes X \otimes X \otimes X \otimes X
 $$
+
 $$
 Z_L = Z \otimes Z \otimes Z \otimes Z \otimes Z \otimes Z \otimes Z
 $$
@@ -996,12 +1008,15 @@ $n = 4$ 时：$1 + 12 = 13 > 2^{3} = 8$，不满足。
 $$
 g_1 = X \otimes Z \otimes Z \otimes X \otimes I
 $$
+
 $$
 g_2 = I \otimes X \otimes Z \otimes Z \otimes X
 $$
+
 $$
 g_3 = X \otimes I \otimes X \otimes Z \otimes Z
 $$
+
 $$
 g_4 = Z \otimes X \otimes I \otimes X \otimes Z
 $$
@@ -1013,6 +1028,7 @@ $$
 $$
 X_L = X \otimes X \otimes X \otimes X \otimes X
 $$
+
 $$
 Z_L = Z \otimes Z \otimes Z \otimes Z \otimes Z
 $$

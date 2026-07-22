@@ -34,9 +34,11 @@
 我们需要一个能够描述**开放系统动力学**的数学框架。这个框架就是**量子操作**（quantum operation）或**量子映射**（quantum map）。
 
 **定义 1.1（量子操作）** 一个量子操作 $\mathcal{E}$ 是一个将密度矩阵映射到密度矩阵的线性映射：
+
 $$
 \mathcal{E}: \rho \mapsto \rho'
 $$
+
 满足：
 - **线性**：$\mathcal{E}(\alpha\rho_1 + \beta\rho_2) = \alpha\mathcal{E}(\rho_1) + \beta\mathcal{E}(\rho_2)$
 - **迹非增**：$0 \le \operatorname{Tr}(\mathcal{E}(\rho)) \le 1$（保迹操作取等号）
@@ -47,11 +49,13 @@ $$
 开放系统动力学的标准处理方法是**系统-环境模型**：把环境和系统的耦合显式写出，然后"求迹掉"环境。
 
 设总系统（系统 $S$ + 环境 $E$）初始处于直积态 $\rho_S \otimes \rho_E$。总系统的演化是幺正的：
+
 $$
 \rho_{SE}' = U_{SE}(\rho_S \otimes \rho_E)U_{SE}^\dagger
 $$
 
 我们只关心系统 $S$ 的最终状态——对环境求部分迹：
+
 $$
 \mathcal{E}(\rho_S) = \operatorname{Tr}_E\left[U_{SE}(\rho_S \otimes \rho_E)U_{SE}^\dagger\right]
 $$
@@ -61,6 +65,7 @@ $$
 ### 1.1.3 Kraus 算符表示
 
 **定理 1.1（Kraus 表示定理）** 设 $\mathcal{E}$ 是一个完全正保迹量子操作。则存在一组算符 $\{K_k\}$，满足 $\sum_k K_k^\dagger K_k = I$，使得对任意密度矩阵 $\rho$ 有：
+
 $$
 \mathcal{E}(\rho) = \sum_k K_k \rho K_k^\dagger
 $$
@@ -68,6 +73,7 @@ $$
 这称为**算符和表示**（operator-sum representation）或 **Kraus 表示**，$\{K_k\}$ 称为 **Kraus 算符**。
 
 **推导思路**：设 $\rho_E = |e_0\rangle\langle e_0|$（环境初态为纯态，混合态情况可通过谱分解归约为纯态）。设 $\{|e_k\rangle\}$ 为环境的一组基。则：
+
 $$
 \begin{aligned}
 \mathcal{E}(\rho_S) &= \operatorname{Tr}_E\left[U_{SE}(\rho_S \otimes |e_0\rangle\langle e_0|)U_{SE}^\dagger\right] \\
@@ -75,12 +81,15 @@ $$
 &= \sum_k K_k \rho_S K_k^\dagger
 \end{aligned}
 $$
+
 其中 $K_k = (I_S \otimes \langle e_k|) U_{SE} (I_S \otimes |e_0\rangle)$ 是作用在系统上的算符。
 
 **保迹条件验证**：
+
 $$
 \operatorname{Tr}(\mathcal{E}(\rho)) = \operatorname{Tr}\left(\sum_k K_k \rho K_k^\dagger\right) = \operatorname{Tr}\left(\rho \sum_k K_k^\dagger K_k\right)
 $$
+
 要求 $\sum_k K_k^\dagger K_k = I$。
 
 > Kraus 表示的美妙之处：它将一个复杂的"系统+环境"幺正演化，浓缩为一组仅作用在系统上的 Kraus 算符。**环境被完全编码在 Kraus 算符中**，我们不需要显式处理环境自由度。
@@ -88,9 +97,11 @@ $$
 ### 1.1.4 Kraus 表示的非唯一性
 
 Kraus 表示不是唯一的。如果 $\{K_k\}$ 是一组 Kraus 算符，那么 $\{K'_k\}$ 定义为：
+
 $$
 K'_k = \sum_j u_{kj} K_j
 $$
+
 其中 $[u_{kj}]$ 是一个幺正矩阵（适当补零填充），也生成完全相同的量子操作 $\mathcal{E}$。
 
 这反映了"不同环境自由度的选择等价于同一个系统动力学"的物理事实。
@@ -98,13 +109,17 @@ $$
 **例 1.1（幺正演化的 Kraus 表示）** 如果 $\mathcal{E}(\rho) = U\rho U^\dagger$（封闭系统幺正演化），则只有一个 Kraus 算符 $K_0 = U$，满足 $U^\dagger U = I$。
 
 **例 1.2（完全退极化的 Kraus 表示）** 将任意 $\rho$ 映射为最大混合态 $I/2$ 的操作：$\mathcal{E}(\rho) = I/2$。它有两个 Kraus 算符：
+
 $$
 K_0 = \frac{1}{\sqrt{2}} I,\quad K_1 = \frac{1}{\sqrt{2}} X
 $$
+
 验证：
+
 $$
 \mathcal{E}(\rho) = \frac{1}{2} I\rho I + \frac{1}{2} X\rho X = \frac{1}{2}\rho + \frac{1}{2}X\rho X
 $$
+
 对于单量子比特 $\rho = \frac{I + \vec{r}\cdot\vec{\sigma}}{2}$，$X\rho X = \frac{I + (r_x, -r_y, -r_z)\cdot\vec{\sigma}}{2}$，代入得 $\mathcal{E}(\rho) = I/2$，符合。
 
 **即时练习 1.1**
@@ -131,6 +146,7 @@ $$
 ### 1.2.2 Kraus 算符
 
 振幅阻尼信道的 Kraus 算符为：
+
 $$
 K_0 = \begin{pmatrix} 1 & 0 \\ 0 & \sqrt{1-\gamma} \end{pmatrix}, \quad
 K_1 = \begin{pmatrix} 0 & \sqrt{\gamma} \\ 0 & 0 \end{pmatrix}
@@ -139,6 +155,7 @@ $$
 其中 $\gamma \in [0,1]$ 是阻尼参数。对于演化时间 $t$，$\gamma = 1 - e^{-t/T_1}$。
 
 **验证保迹条件**：
+
 $$
 K_0^\dagger K_0 + K_1^\dagger K_1 = \begin{pmatrix} 1 & 0 \\ 0 & 1-\gamma \end{pmatrix} + \begin{pmatrix} 0 & 0 \\ 0 & \gamma \end{pmatrix} = I
 $$
@@ -168,6 +185,7 @@ K_1 \rho K_1^\dagger = \begin{pmatrix} 0 & \sqrt{\gamma} \\ 0 & 0 \end{pmatrix}
 $$
 
 **合并结果**：
+
 $$
 \mathcal{E}_{\text{AD}}(\rho) = \begin{pmatrix}
 \rho_{00} + \gamma\rho_{11} & \sqrt{1-\gamma}\,\rho_{01} \\
@@ -186,6 +204,7 @@ $$
 $$
 \rho_{11}(t) = \rho_{11}(0)\,e^{-t/T_1}
 $$
+
 $$
 \rho_{01}(t) = \rho_{01}(0)\,e^{-t/(2T_1)}
 $$
@@ -237,6 +256,7 @@ $$
 相位阻尼的 Kraus 算符有多种等价表示。最常用的是：
 
 **表示一（Kraus 算符）**：
+
 $$
 K_0 = \sqrt{1-\lambda}\, I, \quad K_1 = \sqrt{\lambda}\, Z
 $$
@@ -246,6 +266,7 @@ $$
 **验证**：$K_0^\dagger K_0 + K_1^\dagger K_1 = (1-\lambda)I + \lambda I = I$。
 
 **表示二（相位翻转信道）** 另一种常见形式：
+
 $$
 K_0 = \begin{pmatrix} 1 & 0 \\ 0 & \sqrt{1-\lambda} \end{pmatrix}, \quad
 K_1 = \begin{pmatrix} 0 & 0 \\ 0 & \sqrt{\lambda} \end{pmatrix}
@@ -262,6 +283,7 @@ $$
 $$
 
 计算 $Z\rho Z$：
+
 $$
 Z\rho Z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
 \begin{pmatrix} \rho_{00} & \rho_{01} \\ \rho_{10} & \rho_{11} \end{pmatrix}
@@ -270,6 +292,7 @@ Z\rho Z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
 $$
 
 代入得：
+
 $$
 \mathcal{E}_{\text{PD}}(\rho) = \begin{pmatrix}
 \rho_{00} & (1-2\lambda)\rho_{01} \\
@@ -280,6 +303,7 @@ $$
 **注意**：对角元（布居数）完全不变——没有能量交换。非对角元（相干性）衰减因子为 $1-2\lambda$。
 
 用 $\lambda = 1 - e^{-t/T_\phi}$ 表达：
+
 $$
 \rho_{01}(t) = \rho_{01}(0)\,e^{-t/T_\phi}
 $$
@@ -291,6 +315,7 @@ $$
 2. **纯退相**（$T_\phi$ 过程）：仅相位随机化，无能量交换
 
 总退相率：
+
 $$
 \frac{1}{T_2} = \frac{1}{2T_1} + \frac{1}{T_\phi}
 $$
@@ -303,9 +328,11 @@ $$
 > - 超导量子比特典型值：T₂ ≈ 10–100 μs
 
 **证明**：振幅阻尼使非对角元衰减因子为 $e^{-t/(2T_1)}$，相位阻尼使非对角元衰减因子为 $e^{-t/T_\phi}$，两者合并：
+
 $$
 \rho_{01}(t) = \rho_{01}(0)\,e^{-t/(2T_1)} \cdot e^{-t/T_\phi} = \rho_{01}(0)\,e^{-t/T_2}
 $$
+
 其中 $1/T_2 = 1/(2T_1) + 1/T_\phi$。
 
 ### 1.3.5 布洛赫球图像
@@ -315,6 +342,7 @@ $$
 - $X$ 和 $Y$ 分量指数衰减
 
 对于初始态布洛赫向量 $(r_x, r_y, r_z)$：
+
 $$
 (r_x, r_y, r_z) \xrightarrow{\text{相位阻尼}} (e^{-t/T_2} r_x,\; e^{-t/T_2} r_y,\; r_z)
 $$
@@ -340,6 +368,7 @@ $$
 ### 1.4.2 Kraus 算符
 
 单量子比特退极化信道的 Kraus 算符（对称形式）：
+
 $$
 K_0 = \sqrt{1-p}\, I,\quad
 K_1 = \sqrt{\frac{p}{3}}\, X,\quad
@@ -350,6 +379,7 @@ $$
 其中 $p \in [0,1]$ 是退极化参数（错误概率）。
 
 **验证保迹**：
+
 $$
 K_0^\dagger K_0 + K_1^\dagger K_1 + K_2^\dagger K_2 + K_3^\dagger K_3 = (1-p)I + \frac{p}{3}(X^2 + Y^2 + Z^2) = (1-p)I + \frac{p}{3}(3I) = I
 $$
@@ -366,12 +396,14 @@ $$
 - $Z\rho Z = \frac{I + (-r_x, -r_y, r_z)\cdot\vec{\sigma}}{2}$
 
 代入得：
+
 $$
 \mathcal{E}_{\text{dep}}(\rho) = (1-p)\rho + \frac{p}{3}\left(\frac{3I - (r_x, r_y, r_z)\cdot\vec{\sigma}}{2}\right)
 = \left(1 - \frac{4p}{3}\right)\rho + \frac{4p}{3}\cdot\frac{I}{2}
 $$
 
 即：
+
 $$
 \mathcal{E}_{\text{dep}}(\rho) = \left(1 - \frac{4p}{3}\right)\rho + \frac{4p}{3}\cdot\frac{I}{2}
 $$
@@ -381,6 +413,7 @@ $$
 ### 1.4.4 布洛赫球图像
 
 退极化信道使布洛赫向量均匀收缩：
+
 $$
 \vec{r} \to \left(1 - \frac{4p}{3}\right) \vec{r}
 $$
@@ -388,9 +421,11 @@ $$
 三个方向收缩因子相同——球体均匀缩小到原点。
 
 **定义 1.2（退极化参数与保真度）** 退极化信道的**信道保真度**（channel fidelity）定义为
+
 $$
 F = \langle\psi|\mathcal{E}(|\psi\rangle\langle\psi|)|\psi\rangle
 $$
+
 对于退极化信道，平均保真度（对所有输入纯态平均）为 $1 - p/2$。
 
 ### 1.4.5 退极化信道与量子纠错阈值
@@ -413,6 +448,7 @@ $$
 ### 1.5.1 定义
 
 泡利噪声信道（Pauli noise channel）是退极化信道的推广——允许三种泡利错误以不同概率出现：
+
 $$
 \mathcal{E}_{\text{Pauli}}(\rho) = (1-p_x-p_y-p_z)\rho + p_x X\rho X + p_y Y\rho Y + p_z Z\rho Z
 $$
@@ -423,19 +459,24 @@ $$
 
 - **退极化信道**：$p_x = p_y = p_z = p/3$
 - **比特翻转信道**（bit flip）：$p_x = p$，$p_y = p_z = 0$
-  $$
-  \mathcal{E}_{\text{BF}}(\rho) = (1-p)\rho + p X\rho X
-  $$
+
+$$
+\mathcal{E}_{\text{BF}}(\rho) = (1-p)\rho + p X\rho X
+$$
+
   量子比特以概率 $p$ 发生 $|0\rangle \leftrightarrow |1\rangle$ 翻转
 - **相位翻转信道**（phase flip）：$p_z = p$，$p_x = p_y = 0$
-  $$
-  \mathcal{E}_{\text{PF}}(\rho) = (1-p)\rho + p Z\rho Z
-  $$
+
+$$
+\mathcal{E}_{\text{PF}}(\rho) = (1-p)\rho + p Z\rho Z
+$$
+
   这就是前面讨论的相位阻尼信道（表示一）
 - **比特-相位翻转信道**：$p_y = p$，$p_x = p_z = 0$
-  $$
-  \mathcal{E}_{\text{BPF}}(\rho) = (1-p)\rho + p Y\rho Y
-  $$
+
+$$
+\mathcal{E}_{\text{BPF}}(\rho) = (1-p)\rho + p Y\rho Y
+$$
 
 ### 1.5.3 泡利信道的应用
 
@@ -448,12 +489,15 @@ $$
 ### 1.5.4 泡利信道的保真度
 
 对于比特翻转信道，输入纯态 $|\psi\rangle = \alpha|0\rangle + \beta|1\rangle$：
+
 $$
 \mathcal{E}(|\psi\rangle\langle\psi|) = (1-p)|\psi\rangle\langle\psi| + p|\psi^\perp\rangle\langle\psi^\perp|
 $$
+
 其中 $|\psi^\perp\rangle = \beta^*|0\rangle - \alpha^*|1\rangle$。
 
 保真度：
+
 $$
 F = \langle\psi|\mathcal{E}(|\psi\rangle\langle\psi|)|\psi\rangle = (1-p) \cdot 1 + p \cdot |\langle\psi|\psi^\perp\rangle|^2 = 1-p
 $$
@@ -475,14 +519,17 @@ $$
 设初始密度矩阵 $\rho(0) = \begin{pmatrix} \rho_{00}(0) & \rho_{01}(0) \\ \rho_{10}(0) & \rho_{11}(0) \end{pmatrix}$。
 
 **对角元（布居数）演化**——仅由 T₁ 决定：
+
 $$
 \rho_{11}(t) = \rho_{11}(0)\,e^{-t/T_1}
 $$
+
 $$
 \rho_{00}(t) = 1 - \rho_{11}(t) = 1 - \rho_{11}(0)\,e^{-t/T_1}
 $$
 
 **非对角元（相干性）演化**——由 T₁ 和 T₂ 共同决定：
+
 $$
 \rho_{01}(t) = \rho_{01}(0)\,e^{-t/T_2}
 $$
@@ -497,6 +544,7 @@ $$
 K_{00} = \begin{pmatrix} 1 & 0 \\ 0 & \sqrt{1-\gamma} \end{pmatrix} \sqrt{1-\lambda},\quad
 K_{01} = \begin{pmatrix} 0 & \sqrt{\gamma} \\ 0 & 0 \end{pmatrix} \sqrt{1-\lambda}
 $$
+
 $$
 K_{10} = \begin{pmatrix} 1 & 0 \\ 0 & -\sqrt{1-\gamma} \end{pmatrix} \sqrt{\lambda},\quad
 K_{11} = \begin{pmatrix} 0 & \sqrt{\gamma} \\ 0 & 0 \end{pmatrix} \sqrt{\lambda}
@@ -505,6 +553,7 @@ $$
 其中 $\gamma = 1 - e^{-t/T_1}$，$\lambda = 1 - e^{-t/T_\phi}$。
 
 **验证**：对 $\rho$ 作用 $\sum_{i,j} K_{ij} \rho K_{ij}^\dagger$ 得到：
+
 $$
 \mathcal{E}(\rho) = \begin{pmatrix}
 \rho_{00} + \gamma\rho_{11} & \sqrt{1-\gamma}(1-2\lambda)\rho_{01} \\
@@ -572,6 +621,7 @@ $$
 - $\lambda = 1 - e^{-50/133.3} = 1 - e^{-0.375} \approx 0.3127$
 
 代入公式：
+
 $$
 \rho(50\,\mu\text{s}) = \begin{pmatrix}
 0.5 + 0.3935 \cdot 0.5 & \sqrt{1-0.3935}(1-2\cdot 0.3127)\cdot 0.5 \\
@@ -617,9 +667,11 @@ $$
 $$
 r_x(t) = r_x(0)\,e^{-t/T_2}
 $$
+
 $$
 r_y(t) = r_y(0)\,e^{-t/T_2}
 $$
+
 $$
 r_z(t) = 1 + (r_z(0) - 1)\,e^{-t/T_1}
 $$
@@ -634,11 +686,13 @@ $$
 ### 1.7.3 保真度衰减
 
 从初始纯态 $|\psi\rangle$ 到噪声演化后 $\rho(t)$ 的保真度：
+
 $$
 F(t) = \langle\psi|\rho(t)|\psi\rangle
 $$
 
 对于 $|\psi\rangle = \cos\frac{\theta}{2}|0\rangle + e^{i\phi}\sin\frac{\theta}{2}|1\rangle$：
+
 $$
 F(t) = \frac{1}{2}\big[1 + (1 - \sin^2\theta\, e^{-2t/T_2} - \cos^2\theta\, e^{-2t/T_1})^{1/2}\big]
 $$
@@ -650,6 +704,7 @@ $$
 噪声对量子信息处理的核心威胁：它使原本可区分的量子态变得难以区分。
 
 **例 1.4** 考虑两个正交态 $|0\rangle$ 和 $|1\rangle$。经过时间 $t$ 的振幅阻尼后：
+
 $$
 \rho_0(t) = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix},\quad
 \rho_1(t) = \begin{pmatrix} 1 - e^{-t/T_1} & 0 \\ 0 & e^{-t/T_1} \end{pmatrix}
@@ -705,6 +760,7 @@ $$
 ### 1.8.3 门错误率与保真度
 
 **定义 1.3（门错误率）** 一个量子门 $\mathcal{U}$ 的**门错误率**（gate error rate）定义为 1 减去该门在噪声信道下的平均保真度（平均 over 所有输入纯态）：
+
 $$
 \epsilon = 1 - \int d\psi \langle\psi| \mathcal{E}_{\text{noisy}}(|\psi\rangle\langle\psi|) |\psi\rangle
 $$
@@ -768,6 +824,7 @@ $$
 本章至今讨论的噪声模型都假设了一个关键性质：**马尔可夫性**（Markovianity）——噪声过程没有记忆。即，系统在时刻 $t$ 的演化只依赖于当前状态，而不依赖于历史路径。
 
 数学上，马尔可夫量子动力学由 **Lindblad 主方程**（Lindblad master equation）描述：
+
 $$
 \frac{d\rho}{dt} = -i[H, \rho] + \sum_k \left(L_k \rho L_k^\dagger - \frac{1}{2}\{L_k^\dagger L_k, \rho\}\right)
 $$
@@ -826,6 +883,7 @@ $$
 门错误的最常用模型是**泡利错误模型**：在理想门之后，跟随一个泡利噪声信道。
 
 对于单量子比特门 $U$：
+
 $$
 \mathcal{E}_{\text{noisy}}(U) = \mathcal{E}_{\text{Pauli}} \circ \mathcal{U}
 $$
@@ -840,6 +898,7 @@ $$
 ### 1.10.3 门错误率与误差预算
 
 单量子比特门的错误率通常定义为：
+
 $$
 \epsilon_{1Q} = 1 - \int d\psi \, \langle\psi| U^\dagger \mathcal{E}_{\text{noisy}}(|\psi\rangle\langle\psi|)U |\psi\rangle
 $$
@@ -862,6 +921,7 @@ $$
 ### 1.10.4 两比特门错误
 
 两比特门的错误模型通常写为两个单比特泡利错误的张量积：
+
 $$
 \mathcal{E}_{\text{2Q}}(\rho) = \sum_{i,j} p_{ij} (P_i \otimes P_j) \rho (P_i^\dagger \otimes P_j^\dagger)
 $$
@@ -909,6 +969,7 @@ $$
 - $e_1 = P(0|1)$：将 $|1\rangle$ 误读为 $|0\rangle$ 的概率
 
 混淆矩阵：
+
 $$
 M = \begin{pmatrix}
 1 - e_0 & e_1 \\
@@ -917,6 +978,7 @@ e_0 & 1 - e_1
 $$
 
 **读出保真度**定义为：
+
 $$
 F_{\text{readout}} = \frac{1}{2}\big[(1-e_0) + (1-e_1)\big] = 1 - \frac{e_0 + e_1}{2}
 $$
@@ -930,6 +992,7 @@ $$
 $$
 
 因此可以通过矩阵求逆恢复真实概率分布：
+
 $$
 \vec{p}_{\text{true}} = M^{-1} \cdot \vec{p}_{\text{raw}}
 $$
@@ -1041,9 +1104,11 @@ $$
 ### 基础题（1–7题）
 
 **1.** 写出以下量子操作的 Kraus 算符：
+
 $$
 \mathcal{E}(\rho) = \frac{1}{2}\rho + \frac{1}{4}X\rho X + \frac{1}{4}Y\rho Y
 $$
+
 验证保迹条件。
 
 **2.** 振幅阻尼信道的 $\gamma = 0.2$，输入 $\rho = \frac{1}{2}\begin{pmatrix} 1 & 0.5 \\ 0.5 & 1 \end{pmatrix}$。计算输出密度矩阵和保真度 $F = \langle+|\rho_{\text{out}}|+\rangle$。
@@ -1051,9 +1116,11 @@ $$
 **3.** 某量子比特的 $T_1 = 120\,\mu\text{s}$，$T_2 = 90\,\mu\text{s}$。求纯退相时间 $T_\phi$。如果门时间为 $50\,\text{ns}$，计算 $\gamma$ 和 $\lambda$。
 
 **4.** 证明退极化信道的 Kraus 算符也可以写为：
+
 $$
 K_0 = \sqrt{1-\frac{3p}{4}} I,\quad K_i = \frac{\sqrt{p}}{2} \sigma_i \;(i=1,2,3)
 $$
+
 并说明这两个表示之间的关系。
 
 **5.** 比特翻转信道（概率 $p$）作用于 $\rho = |-\rangle\langle-|$，计算输出态和保真度。$|-\rangle$ 对 $X$ 错误免疫吗？
@@ -1069,9 +1136,11 @@ $$
 **9.** 考虑一个两量子比特的退极化信道：每个量子比特独立经历退极化（参数 $p$）。写出这个联合信道的 Kraus 算符（共 16 项），并求 $|00\rangle$ 保真度。
 
 **10.** 证明：对任意量子操作 $\mathcal{E}$，输入 $\rho$ 和输出 $\mathcal{E}(\rho)$ 之间的迹距离满足：
+
 $$
 D(\rho, \mathcal{E}(\rho)) \le \frac{1}{2}\sum_k \operatorname{Tr}\left(|[K_k, \rho]|\right)
 $$
+
 其中 $[A,B] = AB - BA$ 是对易子。
 
 **11.** 推导单比特门退极化错误模型下，门错误率 $\epsilon$ 与退极化参数 $p$ 的关系：$\epsilon = p/2$。

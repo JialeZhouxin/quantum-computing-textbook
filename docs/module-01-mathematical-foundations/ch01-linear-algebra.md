@@ -31,6 +31,7 @@ $$
 **例 1.2**  $z = -2i$，则 $\text{Re}(z) = 0$，$\text{Im}(z) = -2$。这是一个纯虚数。
 
 两个复数相等当且仅当它们的实部和虚部分别相等：
+
 $$
 a + bi = c + di \iff a = c \text{ 且 } b = d
 $$
@@ -72,11 +73,13 @@ $$
 ```
 
 从原点到点 $z$ 的线段长度称为 $z$ 的**模**（或绝对值），记作 $|z|$：
+
 $$
 |z| = \sqrt{a^2 + b^2}
 $$
 
 从正实轴逆时针旋转到线段 $Oz$ 的角度称为 $z$ 的**幅角**，记作 $\arg(z)$：
+
 $$
 \arg(z) = \theta = \arctan\left(\frac{b}{a}\right)
 $$
@@ -98,6 +101,7 @@ $$
 $$
 
 **特例**（欧拉恒等式）：
+
 $$
 e^{i\pi} = -1 \quad \text{或} \quad e^{i\pi} + 1 = 0
 $$
@@ -109,6 +113,7 @@ $$
 **例 1.5**  用欧拉公式表示 $z = 1 + i$ 的极坐标形式。
 
 解：$r = \sqrt{2}$，$\theta = \pi/4$，所以
+
 $$
 1 + i = \sqrt{2}e^{i\pi/4} = \sqrt{2}\left(\cos\frac{\pi}{4} + i\sin\frac{\pi}{4}\right)
 $$
@@ -116,6 +121,7 @@ $$
 ### 1.1.5 复共轭与模方
 
 复数 $z = a + bi$ 的**复共轭**记作 $\overline{z}$ 或 $z^*$：
+
 $$
 \overline{z} = a - bi
 $$
@@ -129,6 +135,7 @@ $$
 - $\overline{(z_1 / z_2)} = \overline{z_1} / \overline{z_2}$
 
 **模方**定义为一个复数乘以其共轭：
+
 $$
 |z|^2 = \overline{z} \cdot z = (a - bi)(a + bi) = a^2 + b^2
 $$
@@ -169,6 +176,7 @@ plt.show()
 ### 1.1.7 复数的应用：描述振荡
 
 在量子力学中，一个自由粒子的波函数常用 $e^{i(kx - \omega t)}$ 描述。利用欧拉公式：
+
 $$
 e^{i(kx - \omega t)} = \cos(kx - \omega t) + i\sin(kx - \omega t)
 $$
@@ -209,11 +217,13 @@ $$
 ### 1.2.2 $\mathbb{R}^n$ 和 $\mathbb{C}^n$——最重要的向量空间
 
 $\mathbb{R}^n$ 是所有 $n$ 维实向量的集合：
+
 $$
 \mathbb{R}^n = \left\{ \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} \bigg| x_i \in \mathbb{R} \right\}
 $$
 
 $\mathbb{C}^n$ 是所有 $n$ 维复向量的集合（分量可以是复数）：
+
 $$
 \mathbb{C}^n = \left\{ \begin{pmatrix} z_1 \\ z_2 \\ \vdots \\ z_n \end{pmatrix} \bigg| z_i \in \mathbb{C} \right\}
 $$
@@ -227,12 +237,15 @@ $$
 ### 1.2.3 线性组合与线性无关
 
 给定一组向量 $v_1, v_2, \dots, v_k$ 和一组标量（系数）$c_1, c_2, \dots, c_k$，表达式
+
 $$
 c_1 v_1 + c_2 v_2 + \cdots + c_k v_k
 $$
+
 称为 $v_1, \dots, v_k$ 的**线性组合**。
 
 **定义 1.2（线性无关）** 一组向量 $v_1, v_2, \dots, v_k$ 称为**线性无关**的，如果线性组合为零向量只能通过所有系数为零来实现：
+
 $$
 c_1 v_1 + c_2 v_2 + \cdots + c_k v_k = 0 \implies c_1 = c_2 = \cdots = c_k = 0
 $$
@@ -252,6 +265,7 @@ $$
 空间的**维度**就是基中向量的个数。
 
 **例 1.11**  $\mathbb{R}^2$ 的一组标准基是：
+
 $$
 e_1 = \begin{pmatrix}1 \\ 0\end{pmatrix}, \quad e_2 = \begin{pmatrix}0 \\ 1\end{pmatrix}
 $$
@@ -267,6 +281,7 @@ $$
 同一个向量可以用不同的基表示。**基变换**就是用一组基表示另一组基下的坐标。
 
 假设有两组基 $\{e_1, e_2\}$ 和 $\{f_1, f_2\}$。若
+
 $$
 f_1 = a e_1 + c e_2, \quad f_2 = b e_1 + d e_2
 $$
@@ -274,6 +289,7 @@ $$
 则从 $\{e\}$-基到 $\{f\}$-基的**过渡矩阵**为 $P = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$。
 
 向量 $v$ 在两组基下的坐标 $v_e$ 和 $v_f$ 满足：
+
 $$
 v_e = P v_f
 $$
@@ -283,6 +299,7 @@ $$
 则 $f_1 = e_1 + e_2$，$f_2 = e_1 - e_2$，过渡矩阵 $P = \begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}$。
 
 向量 $v = \begin{pmatrix}3 \\ 1\end{pmatrix}$ 在标准基下是 $(3,1)^T$。在 $\{f\}$-基下：
+
 $$
 v_f = P^{-1} v_e = \frac{1}{2}\begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}^{-1} \begin{pmatrix}3 \\ 1\end{pmatrix}
 $$
@@ -316,6 +333,7 @@ $$
 ### 1.3.1 从点积到内积
 
 在 $\mathbb{R}^2$ 或 $\mathbb{R}^3$ 中，你学过**点积**（点乘、数量积）：
+
 $$
 u \cdot v = |u||v| \cos\theta
 $$
@@ -333,6 +351,7 @@ $$
 3. **线性性（第一变元）**：$\langle c_1 u_1 + c_2 u_2, v \rangle = c_1 \langle u_1, v \rangle + c_2 \langle u_2, v \rangle$
 
 注意：对第二变元，内积是共轭线性的：
+
 $$
 \langle u, c_1 v_1 + c_2 v_2 \rangle = \overline{c_1} \langle u, v_1 \rangle + \overline{c_2} \langle u, v_2 \rangle
 $$
@@ -340,11 +359,13 @@ $$
 ### 1.3.3 标准内积
 
 在 $\mathbb{C}^n$ 中，**标准内积**（也叫欧几里得内积）定义为：
+
 $$
 \langle u, v \rangle = \sum_{i=1}^n \overline{u_i} v_i = \overline{u_1} v_1 + \overline{u_2} v_2 + \cdots + \overline{u_n} v_n
 $$
 
 注意共轭加在第一个向量上。如果把向量写成列向量，则：
+
 $$
 \langle u, v \rangle = u^\dagger v = \begin{pmatrix} \overline{u_1} & \overline{u_2} & \cdots & \overline{u_n} \end{pmatrix} \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}
 $$
@@ -352,11 +373,13 @@ $$
 其中 $u^\dagger$ 是 $u$ 的**共轭转置**（先转置，再取共轭）。
 
 **例 1.16**  $u = \begin{pmatrix} 1 + i \\ 2 \end{pmatrix}$, $v = \begin{pmatrix} 3 \\ 4i \end{pmatrix}$。
+
 $$
 \langle u, v \rangle = \overline{1+i} \cdot 3 + \overline{2} \cdot 4i = (1-i) \cdot 3 + 2 \cdot 4i = 3 - 3i + 8i = 3 + 5i
 $$
 
 **例 1.17**  若 $u, v$ 都是实向量（所有分量为实数），则标准内积退化为点积：
+
 $$
 \langle u, v \rangle = u^T v = u_1 v_1 + \cdots + u_n v_n
 $$
@@ -364,6 +387,7 @@ $$
 ### 1.3.4 范数（长度）
 
 **定义 1.6（范数）** 向量 $v$ 的**范数**（长度）定义为：
+
 $$
 \| v \| = \sqrt{\langle v, v \rangle}
 $$
@@ -375,12 +399,15 @@ $$
 - **柯西-施瓦茨不等式**：$|\langle u, v \rangle| \leq \| u \| \cdot \| v \|$
 
 **例 1.18**  计算 $v = \begin{pmatrix} 1 + i \\ 2 - i \end{pmatrix}$ 的范数。
+
 $$
 \langle v, v \rangle = (1-i)(1+i) + (2+i)(2-i) = (1+1) + (4+1) = 7
 $$
+
 所以 $\| v \| = \sqrt{7}$。
 
 **归一化**：把一个非零向量除以它的范数，得到**单位向量**：
+
 $$
 \hat{v} = \frac{v}{\| v \|}
 $$
@@ -394,6 +421,7 @@ $$
 在实空间中，正交就是"垂直"。在复空间中，这个几何直觉仍然适用。
 
 **例 1.19**  $u = \begin{pmatrix}1 \\ 0\end{pmatrix}$, $v = \begin{pmatrix}0 \\ 1\end{pmatrix}$ 在 $\mathbb{C}^2$ 中正交：
+
 $$
 \langle u, v \rangle = 1 \cdot 0 + 0 \cdot 1 = 0
 $$
@@ -401,6 +429,7 @@ $$
 **例 1.20**  $|0\rangle = \begin{pmatrix}1 \\ 0\end{pmatrix}$ 和 $|1\rangle = \begin{pmatrix}0 \\ 1\end{pmatrix}$ 正交。这是量子比特的两个基态。
 
 **正交补**：子空间 $W$ 的**正交补** $W^\perp$ 是所有与 $W$ 中每个向量正交的向量的集合：
+
 $$
 W^\perp = \{ v \in V \mid \langle v, w \rangle = 0, \forall w \in W \}
 $$
@@ -412,11 +441,13 @@ $$
 2. $\| e_i \| = 1$（归一）
 
 **例 1.21**  $\mathbb{R}^2$ 的标准正交基：
+
 $$
 e_1 = \begin{pmatrix}1 \\ 0\end{pmatrix}, \quad e_2 = \begin{pmatrix}0 \\ 1\end{pmatrix}
 $$
 
 **例 1.22**  $\mathbb{R}^2$ 的另一组标准正交基（旋转 45°）：
+
 $$
 e_1' = \frac{1}{\sqrt{2}}\begin{pmatrix}1 \\ 1\end{pmatrix}, \quad e_2' = \frac{1}{\sqrt{2}}\begin{pmatrix}1 \\ -1\end{pmatrix}
 $$
@@ -432,17 +463,20 @@ $$
 输入：线性无关的向量 $v_1, v_2, \dots, v_n$
 
 1. **正交化**：
-   $$
-   u_1 = v_1
-   $$
-   $$
-   u_k = v_k - \sum_{j=1}^{k-1} \frac{\langle u_j, v_k \rangle}{\| u_j \|^2} u_j \quad (k = 2, 3, \dots, n)
-   $$
+
+$$
+u_1 = v_1
+$$
+
+$$
+u_k = v_k - \sum_{j=1}^{k-1} \frac{\langle u_j, v_k \rangle}{\| u_j \|^2} u_j \quad (k = 2, 3, \dots, n)
+$$
 
 2. **归一化**：
-   $$
-   e_k = \frac{u_k}{\| u_k \|}
-   $$
+
+$$
+e_k = \frac{u_k}{\| u_k \|}
+$$
 
 **例 1.23**  在 $\mathbb{R}^2$ 中，对 $v_1 = \begin{pmatrix}1 \\ 2\end{pmatrix}$, $v_2 = \begin{pmatrix}1 \\ 1\end{pmatrix}$ 做施密特正交化。
 
@@ -450,14 +484,17 @@ $$
 $u_1 = v_1 = \begin{pmatrix}1 \\ 2\end{pmatrix}$
 
 计算投影：
+
 $$
 \frac{\langle u_1, v_2 \rangle}{\| u_1 \|^2} = \frac{1\cdot 1 + 2\cdot 1}{1^2 + 2^2} = \frac{3}{5}
 $$
+
 $$
 u_2 = v_2 - \frac{3}{5} u_1 = \begin{pmatrix}1 \\ 1\end{pmatrix} - \frac{3}{5}\begin{pmatrix}1 \\ 2\end{pmatrix} = \begin{pmatrix}2/5 \\ -1/5\end{pmatrix}
 $$
 
 **步骤 2（归一化）**：
+
 $$
 e_1 = \frac{1}{\sqrt{5}}\begin{pmatrix}1 \\ 2\end{pmatrix}, \quad e_2 = \frac{\sqrt{5}}{\sqrt{1}}\begin{pmatrix}2/5 \\ -1/5\end{pmatrix} = \frac{1}{\sqrt{5}}\begin{pmatrix}2 \\ -1\end{pmatrix}
 $$
@@ -491,11 +528,13 @@ $$
 $$
 
 **例 1.24**  量子比特的两个基态：
+
 $$
 |0\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad |1\rangle = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
 $$
 
 **例 1.25**  叠加态：
+
 $$
 |+\rangle = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix} = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)
 $$
@@ -511,11 +550,13 @@ $$
 **步骤**：先转置（行变列、列变行），再取每个分量的复共轭。
 
 **例 1.26**  若 $|v\rangle = \begin{pmatrix} 1 + i \\ 2 - i \end{pmatrix}$，则
+
 $$
 \langle v| = \begin{pmatrix} 1 - i & 2 + i \end{pmatrix}
 $$
 
 **例 1.27**  基矢的左矢：
+
 $$
 \langle 0| = \begin{pmatrix} 1 & 0 \end{pmatrix}, \quad \langle 1| = \begin{pmatrix} 0 & 1 \end{pmatrix}
 $$
@@ -537,6 +578,7 @@ $$
 - $\langle \varphi | \psi \rangle = \overline{\langle \psi | \varphi \rangle}$（共轭对称）
 
 **例 1.28**  计算 $\langle 0 | 1 \rangle$：
+
 $$
 \langle 0 | 1 \rangle = \begin{pmatrix} 1 & 0 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \end{pmatrix} = 0
 $$
@@ -544,6 +586,7 @@ $$
 $|0\rangle$ 和 $|1\rangle$ 正交。
 
 **例 1.29**  计算 $\langle 0 | 0 \rangle$：
+
 $$
 \langle 0 | 0 \rangle = \begin{pmatrix} 1 & 0 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \end{pmatrix} = 1
 $$
@@ -551,12 +594,15 @@ $$
 归一化。
 
 **例 1.30**  $|\psi\rangle = \alpha|0\rangle + \beta|1\rangle$，其中 $|\alpha|^2 + |\beta|^2 = 1$。则：
+
 $$
 \langle \psi | \psi \rangle = ( \overline{\alpha}\langle 0| + \overline{\beta}\langle 1| ) ( \alpha|0\rangle + \beta|1\rangle )
 $$
+
 $$
 = \overline{\alpha}\alpha \langle 0|0\rangle + \overline{\alpha}\beta \langle 0|1\rangle + \overline{\beta}\alpha \langle 1|0\rangle + \overline{\beta}\beta \langle 1|1\rangle
 $$
+
 $$
 = |\alpha|^2 + 0 + 0 + |\beta|^2 = 1
 $$
@@ -600,17 +646,21 @@ $$
 $$
 (\langle 0| + \langle 1|) |\psi\rangle = \langle 0|\psi\rangle + \langle 1|\psi\rangle
 $$
+
 $$
 = \langle 0|(\alpha|0\rangle + \beta|1\rangle) + \langle 1|(\alpha|0\rangle + \beta|1\rangle)
 $$
+
 $$
 = \alpha \langle 0|0\rangle + \beta\langle 0|1\rangle + \alpha\langle 1|0\rangle + \beta\langle 1|1\rangle
 $$
+
 $$
 = \alpha + \beta
 $$
 
 **例 1.35**  计算 $(|0\rangle \langle 0|) |1\rangle$：
+
 $$
 (|0\rangle \langle 0|) |1\rangle = |0\rangle (\langle 0|1\rangle) = |0\rangle \cdot 0 = 0
 $$
@@ -618,6 +668,7 @@ $$
 $|0\rangle\langle 0|$ 把 $|1\rangle$ 变成了零向量。
 
 **例 1.36**  计算 $(|0\rangle \langle 0|) |0\rangle$：
+
 $$
 (|0\rangle \langle 0|) |0\rangle = |0\rangle (\langle 0|0\rangle) = |0\rangle \cdot 1 = |0\rangle
 $$
@@ -632,9 +683,11 @@ $$
 |0\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad
 |1\rangle = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
 $$
+
 $$
 |+\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle) = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix}
 $$
+
 $$
 |-\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle) = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ -1 \end{pmatrix}
 $$
@@ -660,11 +713,13 @@ $$
 ### 1.5.2 矩阵加法与数乘
 
 两个同型矩阵相加，对应元素相加：
+
 $$
 \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix} + \begin{pmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{pmatrix} = \begin{pmatrix} a_{11}+b_{11} & a_{12}+b_{12} \\ a_{21}+b_{21} & a_{22}+b_{22} \end{pmatrix}
 $$
 
 数乘：每个元素乘以该数：
+
 $$
 c \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix} = \begin{pmatrix} c a_{11} & c a_{12} \\ c a_{21} & c a_{22} \end{pmatrix}
 $$
@@ -672,6 +727,7 @@ $$
 ### 1.5.3 矩阵乘法
 
 $A$ 是 $m \times n$ 矩阵，$B$ 是 $n \times p$ 矩阵，乘积 $C = AB$ 是 $m \times p$ 矩阵：
+
 $$
 C_{ik} = \sum_{j=1}^n A_{ij} B_{jk}
 $$
@@ -685,6 +741,7 @@ $$
 $$
 
 **例 1.38**  Pauli-X 门（量子非门）作用于 $|0\rangle$：
+
 $$
 X|0\rangle = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \end{pmatrix} = |1\rangle
 $$
@@ -692,12 +749,15 @@ $$
 **矩阵乘法不交换**：一般 $AB \neq BA$。
 
 **例 1.39**  令 $X = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$，$Z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$。
+
 $$
 XZ = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}
 $$
+
 $$
 ZX = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}
 $$
+
 $$
 XZ \neq ZX
 $$
@@ -726,6 +786,7 @@ $$
 ### 1.5.5 逆矩阵
 
 如果 $A$ 是方阵，且存在矩阵 $A^{-1}$ 使得：
+
 $$
 A A^{-1} = A^{-1} A = I
 $$
@@ -733,9 +794,11 @@ $$
 则 $A$ 称为**可逆的**（非奇异的），$A^{-1}$ 是 $A$ 的**逆矩阵**。
 
 对于 $2 \times 2$ 矩阵，逆有公式：
+
 $$
 A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}, \quad \det(A) = ad - bc
 $$
+
 $$
 A^{-1} = \frac{1}{\det(A)} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}
 $$
@@ -749,6 +812,7 @@ $X$ 的逆是它自己。事实上，所有 Pauli 门都是自逆的。
 ### 1.5.6 幺正矩阵
 
 **定义 1.9（幺正矩阵）** 一个方阵 $U$ 称为**幺正的**（unitary），如果：
+
 $$
 U^\dagger U = U U^\dagger = I
 $$
@@ -766,6 +830,7 @@ $$
 - 概率总和守恒（归一化态矢演化后仍然归一化）
 
 **例 1.41**  Hadamard 门 $H = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$ 是幺正的：
+
 $$
 H^\dagger H = \frac{1}{2}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} = \frac{1}{2}\begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix} = I
 $$
@@ -785,6 +850,7 @@ $$
 ### 1.5.7 厄米矩阵
 
 **定义 1.10（厄米矩阵）** 一个方阵 $H$ 称为**厄米的**（Hermitian），如果：
+
 $$
 H^\dagger = H
 $$
@@ -798,6 +864,7 @@ $$
 3. **可对角化**（更准确地说，可被幺正对角化）
 
 **例 1.43**  Pauli 矩阵都是厄米的：
+
 $$
 X^\dagger = X, \quad Y^\dagger = Y, \quad Z^\dagger = Z
 $$
@@ -813,6 +880,7 @@ $$
 ### 1.5.8 对易子与反对易子
 
 **对易子**（commutator）：
+
 $$
 [A, B] = A B - B A
 $$
@@ -820,6 +888,7 @@ $$
 如果 $[A, B] = 0$，则称 $A$ 和 $B$ **对易**（commute）。
 
 **反对易子**（anticommutator）：
+
 $$
 \{A, B\} = A B + B A
 $$
@@ -827,12 +896,15 @@ $$
 如果 $\{A, B\} = 0$，则称 $A$ 和 $B$ **反对易**（anticommute）。
 
 **例 1.45**  Pauli 矩阵的对易关系：
+
 $$
 [X, Y] = XY - YX = iZ
 $$
+
 $$
 [Y, Z] = YZ - ZY = iX
 $$
+
 $$
 [Z, X] = ZX - XZ = iY
 $$
@@ -840,12 +912,15 @@ $$
 总结为 $[\sigma_i, \sigma_j] = 2i \varepsilon_{ijk} \sigma_k$。（其中 $\varepsilon_{ijk}$ 是 Levi-Civita 符号）
 
 **例 1.46**  Pauli 矩阵两两反对易：
+
 $$
 \{X, Y\} = XY + YX = 0
 $$
+
 $$
 \{Y, Z\} = YZ + ZY = 0
 $$
+
 $$
 \{Z, X\} = ZX + XZ = 0
 $$
@@ -874,6 +949,7 @@ $$
 ### 1.6.2 本征方程
 
 **定义 1.11（本征值与本征矢）** 对于方阵 $A$，如果存在非零向量 $|v\rangle$ 和标量 $\lambda$ 使得：
+
 $$
 A |v\rangle = \lambda |v\rangle
 $$
@@ -897,11 +973,13 @@ $X|-\rangle = \frac{1}{\sqrt{2}}\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \be
 ### 1.6.3 特征多项式
 
 如何求解本征值？把本征方程改写：
+
 $$
 A |v\rangle = \lambda |v\rangle \implies (A - \lambda I) |v\rangle = 0
 $$
 
 因为 $|v\rangle \neq 0$，所以矩阵 $A - \lambda I$ 必须**奇异**（行列式为零）：
+
 $$
 \det(A - \lambda I) = 0
 $$
@@ -913,6 +991,7 @@ $$
 $$
 \det(X - \lambda I) = \det\begin{pmatrix} -\lambda & 1 \\ 1 & -\lambda \end{pmatrix} = \lambda^2 - 1 = 0
 $$
+
 解得 $\lambda = \pm 1$。
 
 **例 1.50**  求 $H = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$ 的本征值。
@@ -920,9 +999,11 @@ $$
 $$
 \det(H - \lambda I) = \det\begin{pmatrix} 1/\sqrt{2} - \lambda & 1/\sqrt{2} \\ 1/\sqrt{2} & -1/\sqrt{2} - \lambda \end{pmatrix}
 $$
+
 $$
 = (1/\sqrt{2} - \lambda)(-1/\sqrt{2} - \lambda) - 1/2 = -\frac{1}{2} - \frac{\lambda}{\sqrt{2}} + \frac{\lambda}{\sqrt{2}} + \lambda^2 - \frac{1}{2} = \lambda^2 - 1
 $$
+
 解得 $\lambda = \pm 1$。
 
 ### 1.6.4 本征矢的求解
@@ -932,16 +1013,21 @@ $$
 **例 1.51**  续上例，求 $H$ 的本征矢。
 
 对 $\lambda = 1$：
+
 $$
 \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} x \\ y \end{pmatrix}
 $$
+
 $$
 \frac{1}{\sqrt{2}}(x + y) = x \implies y = (\sqrt{2} - 1)x
 $$
+
 $$
 \frac{1}{\sqrt{2}}(x - y) = y \implies x - y = \sqrt{2}y \implies x = (\sqrt{2} + 1)y
 $$
+
 两个方程一致。取 $x = 1$，得 $y = \sqrt{2} - 1$。归一化后：
+
 $$
 |v_1\rangle = \frac{1}{\sqrt{4 - 2\sqrt{2}}} \begin{pmatrix} 1 \\ \sqrt{2} - 1 \end{pmatrix}
 $$
@@ -951,6 +1037,7 @@ $$
 ### 1.6.5 对角化
 
 如果一个 $n \times n$ 矩阵 $A$ 有 $n$ 个线性无关的本征矢，那么它可被**对角化**：
+
 $$
 A = P D P^{-1}
 $$
@@ -958,6 +1045,7 @@ $$
 其中 $D$ 是对角矩阵（对角元是本征值），$P$ 的列是本征矢。
 
 对于**厄米矩阵**和**幺正矩阵**，有更强的结论：它们可以被**幺正对角化**：
+
 $$
 A = U D U^\dagger
 $$
@@ -973,6 +1061,7 @@ $$
 $$
 U = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} = H
 $$
+
 $$
 X = H Z H^\dagger = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}
 $$
@@ -982,6 +1071,7 @@ $$
 ### 1.6.6 谱分解定理——量子力学的基石
 
 **定理 1.1（谱分解）** 任何厄米矩阵 $H$ 可以写成：
+
 $$
 H = \sum_{i} \lambda_i |\lambda_i\rangle \langle \lambda_i|
 $$
@@ -1017,6 +1107,7 @@ $$
 正确。
 
 **谱分解的用途**：有了谱分解，我们可以定义算符的函数（见 1.10 节）：
+
 $$
 f(H) = \sum_i f(\lambda_i) |\lambda_i\rangle \langle \lambda_i|
 $$
@@ -1040,6 +1131,7 @@ $$
 ### 1.7.2 投影算子的定义
 
 **定义 1.12（投影算子）** 一个线性算符 $P$ 称为**投影算子**（projector），如果它是**幂等**的：
+
 $$
 P^2 = P
 $$
@@ -1051,9 +1143,11 @@ $$
 验证：$P_0^2 = |0\rangle\langle 0|0\rangle\langle 0| = |0\rangle \cdot 1 \cdot \langle 0| = |0\rangle\langle 0| = P_0$。
 
 $P_0$ 把任意向量投影到 $|0\rangle$ 方向。例如：
+
 $$
 P_0 |1\rangle = |0\rangle\langle 0|1\rangle = |0\rangle \cdot 0 = 0
 $$
+
 $$
 P_0 |+\rangle = |0\rangle\langle 0|+\rangle = |0\rangle \cdot \frac{1}{\sqrt{2}} = \frac{1}{\sqrt{2}}|0\rangle
 $$
@@ -1063,6 +1157,7 @@ $$
 ### 1.7.3 完备性关系
 
 对于一组标准正交基 $\{|i\rangle\}$，有：
+
 $$
 \sum_{i} |i\rangle \langle i| = I
 $$
@@ -1070,11 +1165,13 @@ $$
 这个公式称为**完备性关系**（completeness relation）。它表明这组基"张满"了整个空间。
 
 **验证**（在 $\mathbb{C}^2$ 中）：
+
 $$
 |0\rangle\langle 0| + |1\rangle\langle 1| = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} + \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I
 $$
 
 **例 1.58**  在基 $\{|+\rangle, |-\rangle\}$ 下验证完备性：
+
 $$
 |+\rangle\langle +| + |-\rangle\langle -| = \frac{1}{2}\begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix} + \frac{1}{2}\begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I
 $$
@@ -1117,6 +1214,7 @@ $$
 ### 1.7.6 一般投影算子
 
 投影不一定只投影到一维子空间。例如，投影到 $\mathbb{C}^2$ 中由 $|0\rangle$ 和 $|1\rangle$ 张成的整个空间就是单位矩阵。更一般地：
+
 $$
 P_W = \sum_{i \in \text{索引集}} |i\rangle \langle i|
 $$
@@ -1124,6 +1222,7 @@ $$
 其中 $\{|i\rangle\}$ 是子空间 $W$ 的一组标准正交基。
 
 **例 1.62**  在 $\mathbb{C}^3$ 中，投影到由 $(1,0,0)^T$ 和 $(0,1,0)^T$ 张成的子空间：
+
 $$
 P = |e_1\rangle\langle e_1| + |e_2\rangle\langle e_2| = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{pmatrix}
 $$
@@ -1167,37 +1266,45 @@ $$
 在坐标表示下，张量积通过**克罗内克积**（Kronecker product）计算。
 
 对于向量：
+
 $$
 \begin{pmatrix} a \\ b \end{pmatrix} \otimes \begin{pmatrix} c \\ d \end{pmatrix} = \begin{pmatrix} a \begin{pmatrix} c \\ d \end{pmatrix} \\ b \begin{pmatrix} c \\ d \end{pmatrix} \end{pmatrix} = \begin{pmatrix} a c \\ a d \\ b c \\ b d \end{pmatrix}
 $$
 
 **例 1.63**  计算 $|0\rangle \otimes |1\rangle$（简写为 $|01\rangle$）：
+
 $$
 |0\rangle \otimes |1\rangle = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \otimes \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 \cdot \begin{pmatrix} 0 \\ 1 \end{pmatrix} \\ 0 \cdot \begin{pmatrix} 0 \\ 1 \end{pmatrix} \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix}
 $$
 
 **例 1.64**  $|+\rangle \otimes |-\rangle$：
+
 $$
 |+\rangle = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad |-\rangle = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ -1 \end{pmatrix}
 $$
+
 $$
 |+\rangle \otimes |-\rangle = \frac{1}{2} \begin{pmatrix} 1 \cdot \begin{pmatrix} 1 \\ -1 \end{pmatrix} \\ 1 \cdot \begin{pmatrix} 1 \\ -1 \end{pmatrix} \end{pmatrix} = \frac{1}{2} \begin{pmatrix} 1 \\ -1 \\ 1 \\ -1 \end{pmatrix}
 $$
 
 对于矩阵：
+
 $$
 A \otimes B = \begin{pmatrix} a_{11}B & a_{12}B & \cdots \\ a_{21}B & a_{22}B & \cdots \\ \vdots & \vdots & \ddots \end{pmatrix}
 $$
 
 **例 1.65**  $X \otimes Z$：
+
 $$
 X \otimes Z = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \otimes \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} = \begin{pmatrix} 0 \cdot Z & 1 \cdot Z \\ 1 \cdot Z & 0 \cdot Z \end{pmatrix}
 $$
+
 $$
 = \begin{pmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1 \\ 1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \end{pmatrix}
 $$
 
 **例 1.66**  $I \otimes X$（这是两个量子比特中，在第二个比特上作用 $X$ 门）：
+
 $$
 I \otimes X = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} X & 0 \\ 0 & X \end{pmatrix} = \begin{pmatrix} 0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{pmatrix}
 $$
@@ -1214,13 +1321,15 @@ $$
 3. **数乘**：$(cA) \otimes B = c(A \otimes B) = A \otimes (cB)$
 
 4. **混合积性质**（最重要！）：
-   $$
-   (A \otimes B)(C \otimes D) = (AC) \otimes (BD)
-   $$
+
+$$
+(A \otimes B)(C \otimes D) = (AC) \otimes (BD)
+$$
 
    前提是矩阵维度匹配。
 
 **例 1.67**  验证混合积性质：
+
 $$
 (X \otimes I)(I \otimes X) = (X \cdot I) \otimes (I \cdot X) = X \otimes X
 $$
@@ -1245,12 +1354,14 @@ $$
 |00\rangle = |0\rangle \otimes |0\rangle = \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}, \quad
 |01\rangle = |0\rangle \otimes |1\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix}
 $$
+
 $$
 |10\rangle = |1\rangle \otimes |0\rangle = \begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \end{pmatrix}, \quad
 |11\rangle = |1\rangle \otimes |1\rangle = \begin{pmatrix} 0 \\ 0 \\ 0 \\ 1 \end{pmatrix}
 $$
 
 这称为**计算基**（computational basis）。任意双量子比特态可以写成：
+
 $$
 |\psi\rangle = \alpha_{00}|00\rangle + \alpha_{01}|01\rangle + \alpha_{10}|10\rangle + \alpha_{11}|11\rangle
 $$
@@ -1258,6 +1369,7 @@ $$
 其中 $\sum |\alpha_{ij}|^2 = 1$。
 
 **例 1.68**  Bell 态（最大纠缠态）：
+
 $$
 |\Phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)
 $$
@@ -1265,6 +1377,7 @@ $$
 这个态**不能**写成 $|a\rangle \otimes |b\rangle$ 的形式（不可分离），这正是量子纠缠的核心特征。
 
 **例 1.69**  $|+\rangle \otimes |+\rangle$ 是可分离态：
+
 $$
 |+\rangle \otimes |+\rangle = \frac{1}{2}(|0\rangle + |1\rangle) \otimes (|0\rangle + |1\rangle) = \frac{1}{2}(|00\rangle + |01\rangle + |10\rangle + |11\rangle)
 $$
@@ -1278,6 +1391,7 @@ $$
 一般地，$n$ 量子比特的张量积空间维度为 $2^n$。这就是量子计算"指数加速"的数学根源——$n$ 个量子比特的态空间是 $2^n$ 维的。
 
 **例 1.70**  三量子比特的 $W$ 态：
+
 $$
 |W\rangle = \frac{1}{\sqrt{3}}(|001\rangle + |010\rangle + |100\rangle)
 $$
@@ -1289,11 +1403,13 @@ $$
 一个算符只作用在某个子系统中，在全局空间中的表示为该算符与恒等算符的张量积。
 
 **例 1.71**  在两个量子比特的系统中，只翻转第一个量子比特（在第一个比特上作用 $X$ 门）：
+
 $$
 X \otimes I = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \otimes \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \end{pmatrix}
 $$
 
 验证作用于 $|10\rangle$：
+
 $$
 (X \otimes I) |10\rangle = (X \otimes I)(|1\rangle \otimes |0\rangle) = (X|1\rangle) \otimes |0\rangle = |0\rangle \otimes |0\rangle = |00\rangle
 $$
@@ -1301,6 +1417,7 @@ $$
 正确——第一个比特从 $|1\rangle$ 翻转为 $|0\rangle$，第二个比特不变。
 
 **例 1.72**  CNOT 门（受控非门）——一个量子比特控制另一个的翻转：
+
 $$
 CNOT = |0\rangle\langle 0| \otimes I + |1\rangle\langle 1| \otimes X = \begin{pmatrix} I & 0 \\ 0 & X \end{pmatrix} = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{pmatrix}
 $$
@@ -1320,6 +1437,7 @@ CNOT 是量子计算中最基本的双比特门之一。
 ### 1.9.1 迹运算
 
 **定义 1.14（迹）** 方阵 $A$ 的**迹**等于其对角元之和：
+
 $$
 \text{Tr}(A) = \sum_i A_{ii}
 $$
@@ -1334,9 +1452,11 @@ $$
 **例 1.73**  $\text{Tr}\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} = 1 + 4 = 5$。
 
 **例 1.74**  $|\psi\rangle = \alpha|0\rangle + \beta|1\rangle$，密度矩阵 $\rho = |\psi\rangle\langle \psi|$：
+
 $$
 \rho = \begin{pmatrix} |\alpha|^2 & \alpha \overline{\beta} \\ \overline{\alpha} \beta & |\beta|^2 \end{pmatrix}
 $$
+
 $$
 \text{Tr}(\rho) = |\alpha|^2 + |\beta|^2 = 1
 $$
@@ -1350,6 +1470,7 @@ $$
 **定义 1.15（部分迹）** 对于两体系统 $H_A \otimes H_B$ 上的算符 $M_{AB}$，关于子系统 $B$ 的**部分迹** $\text{Tr}_B(M_{AB})$ 是 $H_A$ 上的算符。
 
 在计算基下，部分迹的定义最清楚。设 $M_{AB}$ 的矩阵元为 $M_{ij,kl}$，其中 $i,j$ 对应 $A$ 子系统，$k,l$ 对应 $B$ 子系统：
+
 $$
 (\text{Tr}_B(M_{AB}))_{ij} = \sum_k M_{ik, jk}
 $$
@@ -1363,11 +1484,13 @@ $$
 $$
 
 在计算基 $\{|00\rangle, |01\rangle, |10\rangle, |11\rangle\}$ 下：
+
 $$
 \rho_{AB} = \frac{1}{2}\begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 1 & 0 & 0 & 1 \end{pmatrix}
 $$
 
 取部分迹 $\text{Tr}_B$（对 $B$ 的指标求和）：
+
 $$
 (\text{Tr}_B(\rho_{AB}))_{ij} = \sum_{k=0,1} \rho_{ik, jk}
 $$
@@ -1377,9 +1500,11 @@ $\rho_A = \text{Tr}_B(\rho_{AB}) = \frac{1}{2}\begin{pmatrix} 1 & 0 \\ 0 & 1 \en
 这是**最大混合态**。一个纯的纠缠态，在子系统看来却是混合态——这是纠缠的典型特征。
 
 **例 1.76**  对可分离态 $\rho_{AB} = |00\rangle\langle 00|$ 取部分迹：
+
 $$
 \rho_{AB} = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}
 $$
+
 $$
 \rho_A = \text{Tr}_B(\rho_{AB}) = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} = |0\rangle\langle 0|
 $$
@@ -1395,6 +1520,7 @@ $$
 ### 1.9.4 施密特分解
 
 **定理 1.2（施密特分解）** 对于两体系统 $H_A \otimes H_B$ 中的任意纯态 $|\psi\rangle_{AB}$，存在**施密特分解**：
+
 $$
 |\psi\rangle_{AB} = \sum_{i=1}^{r} \sigma_i |a_i\rangle \otimes |b_i\rangle
 $$
@@ -1420,11 +1546,13 @@ $$
 **例 1.77**  求 $|\psi\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |01\rangle + |10\rangle - |11\rangle)$ 的施密特分解。
 
 写出系数矩阵（行对应 $A$，列对应 $B$）：
+
 $$
 M = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}
 $$
 
 这是 $\sqrt{2} \cdot H$（Hadamard 矩阵）。奇异值分解：
+
 $$
 M = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} = H
 $$
@@ -1432,6 +1560,7 @@ $$
 $H$ 已经是对称的，$H = H^\dagger$，且 $H^2 = I$，所以 $H = U \Sigma U^\dagger$，奇异值为 $1, 1$。
 
 施密特分解：
+
 $$
 |\psi\rangle = 1 \cdot |+\rangle \otimes |+\rangle + 1 \cdot |-\rangle \otimes |-\rangle
 $$
@@ -1447,7 +1576,6 @@ $|\psi\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |01\rangle + |10\rangle - |11\ra
 $M_{00} = 1/\sqrt{2}$，$M_{01} = 1/\sqrt{2}$，$M_{10} = 1/\sqrt{2}$，$M_{11} = -1/\sqrt{2}$。
 
 $$M = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$$
-
 奇异值：$\sigma_1 = 1$，$\sigma_2 = 1$。
 
 $U = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$，$V = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$？
@@ -1464,12 +1592,15 @@ $|b_1\rangle = |+\rangle$
 $|b_2\rangle = |-\rangle$
 
 验证：
+
 $$
 |+\rangle|+\rangle + |-\rangle|-\rangle = \frac{1}{2}(|0\rangle+|1\rangle)(|0\rangle+|1\rangle) + \frac{1}{2}(|0\rangle-|1\rangle)(|0\rangle-|1\rangle)
 $$
+
 $$
 = \frac{1}{2}(|00\rangle + |01\rangle + |10\rangle + |11\rangle) + \frac{1}{2}(|00\rangle - |01\rangle - |10\rangle + |11\rangle)
 $$
+
 $$
 = |00\rangle + |11\rangle
 $$
@@ -1489,9 +1620,11 @@ $M M^\dagger = \frac{1}{2}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \begin{p
 $U$ 可以是任意幺正矩阵... 实际上 $M$ 本身是幺正的（$M M^\dagger = I$），所以 $U = M$，$\Sigma = I$，$V = I$。
 
 那么施密特分解：
+
 $$
 |\psi\rangle = \sum_{i,j} M_{ij} |i\rangle|j\rangle = \sum_{i,j} \sum_k U_{ik} \Sigma_k V_{jk}^* |i\rangle|j\rangle
 $$
+
 $$
 = \sum_k \sigma_k (\sum_i U_{ik}|i\rangle) (\sum_j V_{jk}^* |j\rangle) = \sum_k \sigma_k |a_k\rangle |b_k\rangle
 $$
@@ -1499,9 +1632,11 @@ $$
 这里 $\sigma_1 = \sigma_2 = 1$，$|a_1\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle) = |+\rangle$，$|a_2\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle) = |-\rangle$，$|b_1\rangle = |0\rangle$，$|b_2\rangle = |1\rangle$。
 
 验证：
+
 $$
 |+\rangle|0\rangle + |-\rangle|1\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)|0\rangle + \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)|1\rangle
 $$
+
 $$
 = \frac{1}{\sqrt{2}}(|00\rangle + |10\rangle + |01\rangle - |11\rangle) = \frac{1}{\sqrt{2}}(|00\rangle + |01\rangle + |10\rangle - |11\rangle)
 $$
@@ -1517,18 +1652,23 @@ $$
 - $r$ 越大，纠缠"程度"通常越高
 
 **例 1.78**  $|\Phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)$。系数矩阵：
+
 $$
 M = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
 $$
+
 奇异值：$\sigma_1 = \sigma_2 = 1/\sqrt{2}$，施密特秩 $r = 2$，所以 $|\Phi^+\rangle$ 是纠缠态。
 
 **例 1.79**  $|\psi\rangle = |00\rangle$。系数矩阵：
+
 $$
 M = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}
 $$
+
 奇异值：$\sigma_1 = 1$，$\sigma_2 = 0$，施密特秩 $r = 1$，所以是可分离态。
 
 **施密特系数与部分迹的关系**：
+
 $$
 \rho_A = \text{Tr}_B(|\psi\rangle\langle\psi|) = \sum_i \sigma_i^2 |a_i\rangle\langle a_i|
 $$
@@ -1554,6 +1694,7 @@ $$
 ### 1.10.2 矩阵指数
 
 **定义 1.16（矩阵指数）** 方阵 $A$ 的**矩阵指数**定义为：
+
 $$
 e^{A} = \sum_{n=0}^{\infty} \frac{A^n}{n!} = I + A + \frac{A^2}{2!} + \frac{A^3}{3!} + \cdots
 $$
@@ -1563,21 +1704,27 @@ $$
 **例 1.80**  计算 $e^{X}$，其中 $X = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$。
 
 先计算 $X$ 的幂：
+
 $$
 X^0 = I, \quad X^1 = X, \quad X^2 = I, \quad X^3 = X, \quad X^4 = I, \dots
 $$
+
 因为 $X^2 = I$。
 
 所以：
+
 $$
 e^{X} = I + X + \frac{I}{2!} + \frac{X}{3!} + \frac{I}{4!} + \frac{X}{5!} + \cdots
 $$
+
 $$
 = I(1 + \frac{1}{2!} + \frac{1}{4!} + \cdots) + X(1 + \frac{1}{3!} + \frac{1}{5!} + \cdots)
 $$
+
 $$
 = I \cosh(1) + X \sinh(1)
 $$
+
 $$
 = \begin{pmatrix} \cosh(1) & \sinh(1) \\ \sinh(1) & \cosh(1) \end{pmatrix}
 $$
@@ -1589,9 +1736,11 @@ e^{-i\theta X} = I + (-i\theta X) + \frac{(-i\theta X)^2}{2!} + \frac{(-i\theta 
 $$
 
 注意 $X^2 = I$，所以：
+
 $$
 e^{-i\theta X} = I(1 - \frac{\theta^2}{2!} + \frac{\theta^4}{4!} - \cdots) - iX(\theta - \frac{\theta^3}{3!} + \cdots)
 $$
+
 $$
 = I \cos\theta - i X \sin\theta = \begin{pmatrix} \cos\theta & -i\sin\theta \\ -i\sin\theta & \cos\theta \end{pmatrix}
 $$
@@ -1605,6 +1754,7 @@ $$
 更常见的形式：如果 $H$ 是厄米矩阵（$H^\dagger = H$），则 $e^{-i\theta H}$ 是幺正矩阵。
 
 **验证**：
+
 $$
 (e^{-i\theta H})^\dagger = e^{i\theta H^\dagger} = e^{i\theta H} = (e^{-i\theta H})^{-1}
 $$
@@ -1612,6 +1762,7 @@ $$
 所以 $e^{-i\theta H} (e^{-i\theta H})^\dagger = I$。
 
 **为什么这对量子计算至关重要？** 量子态的演化由**薛定谔方程**描述：
+
 $$
 i\hbar \frac{d}{dt}|\psi(t)\rangle = H |\psi(t)\rangle
 $$
@@ -1625,14 +1776,17 @@ $$
 $$
 R_x(\theta) = e^{-i\theta X/2} = \cos\frac{\theta}{2} I - i \sin\frac{\theta}{2} X
 $$
+
 $$
 R_y(\theta) = e^{-i\theta Y/2} = \cos\frac{\theta}{2} I - i \sin\frac{\theta}{2} Y
 $$
+
 $$
 R_z(\theta) = e^{-i\theta Z/2} = \cos\frac{\theta}{2} I - i \sin\frac{\theta}{2} Z
 $$
 
 **例 1.82**  $R_z(\theta)$ 的矩阵形式：
+
 $$
 R_z(\theta) = \cos\frac{\theta}{2}\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} - i \sin\frac{\theta}{2} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} = \begin{pmatrix} e^{-i\theta/2} & 0 \\ 0 & e^{i\theta/2} \end{pmatrix}
 $$
@@ -1640,6 +1794,7 @@ $$
 当 $\theta = \pi$ 时，$R_z(\pi) = \begin{pmatrix} -i & 0 \\ 0 & i \end{pmatrix} = -iZ$（相差一个全局相位）。
 
 **例 1.83**  相位门 $S$ 和 $T$：
+
 $$
 S = R_z(\pi/2) = \begin{pmatrix} 1 & 0 \\ 0 & i \end{pmatrix}, \quad
 T = R_z(\pi/4) = \begin{pmatrix} 1 & 0 \\ 0 & e^{i\pi/4} \end{pmatrix}
@@ -1648,6 +1803,7 @@ $$
 ### 1.10.5 通过谱分解计算矩阵函数
 
 如果矩阵 $H$ 可对角化 $H = \sum_i \lambda_i |\lambda_i\rangle\langle \lambda_i|$，则：
+
 $$
 f(H) = \sum_i f(\lambda_i) |\lambda_i\rangle\langle \lambda_i|
 $$
@@ -1657,12 +1813,15 @@ $$
 **例 1.84**  用谱分解计算 $e^{-i\theta Z}$。
 
 $Z$ 的谱分解：$Z = 1\cdot|0\rangle\langle 0| + (-1)\cdot|1\rangle\langle 1|$。
+
 $$
 e^{-i\theta Z} = e^{-i\theta \cdot 1} |0\rangle\langle 0| + e^{-i\theta \cdot (-1)} |1\rangle\langle 1|
 $$
+
 $$
 = e^{-i\theta} |0\rangle\langle 0| + e^{i\theta} |1\rangle\langle 1|
 $$
+
 $$
 = \begin{pmatrix} e^{-i\theta} & 0 \\ 0 & e^{i\theta} \end{pmatrix}
 $$
@@ -1672,6 +1831,7 @@ $$
 ### 1.10.6 奇异值分解
 
 **定理 1.3（奇异值分解，SVD）** 任意 $m \times n$ 矩阵 $M$ 可以分解为：
+
 $$
 M = U \Sigma V^\dagger
 $$
@@ -1698,6 +1858,7 @@ SVD 在量子信息中的应用：
 ### 1.10.7 极分解
 
 **定理 1.4（极分解）** 任意方阵 $M$ 可以分解为：
+
 $$
 M = U P
 $$

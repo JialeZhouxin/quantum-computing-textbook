@@ -138,9 +138,11 @@ $$
 **例6.2**  若 $E_J/h = 15\ \text{GHz}$，$E_C/h = 300\ \text{MHz}$，计算 $\omega_{01}/2\pi$ 和 $\alpha/2\pi$。
 
 解：
+
 $$
 \omega_{01} \approx \frac{\sqrt{8 \times 15 \times 0.3}}{\hbar} = \sqrt{36}\ \text{GHz} = 6\ \text{GHz}
 $$
+
 $$
 \alpha = -E_C/h = -300\ \text{MHz}
 $$
@@ -810,6 +812,7 @@ $$
 **例6.7**  一个Transmon的 $T_1 = 100\ \mu\text{s}$，一个X门用时 $t_g = 20\ \text{ns}$。T1限制的保真度损失是多少？
 
 解：
+
 $$
 \varepsilon_{T_1} \approx \frac{20 \times 10^{-9}}{3 \times 100 \times 10^{-6}} \approx 6.7 \times 10^{-5}
 $$

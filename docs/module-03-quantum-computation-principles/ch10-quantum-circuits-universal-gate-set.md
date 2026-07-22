@@ -57,9 +57,11 @@
 **量子寄存器**是一组量子比特的集合。与经典寄存器不同，$n$个量子比特的量子寄存器可以处于$2^n$个基态的叠加。
 
 **例4.1** 一个2量子比特的寄存器可以处于：
+
 $$
 |\psi\rangle = \alpha|00\rangle + \beta|01\rangle + \gamma|10\rangle + \delta|11\rangle
 $$
+
 其中 $|\alpha|^2 + |\beta|^2 + |\gamma|^2 + |\delta|^2 = 1$。
 
 在电路图中，我们通常用一条水平线代表一个量子比特。多个量子比特的寄存器用多条平行线表示，通常在左侧用标签标明寄存器名称：
@@ -117,6 +119,7 @@ $$
   └───┘
 ```
 等效操作为 $H \otimes X$。作用在初始态 $|00\rangle$ 上：
+
 $$
 (H \otimes X) |00\rangle = H|0\rangle \otimes X|0\rangle = \frac{|0\rangle + |1\rangle}{\sqrt{2}} \otimes |1\rangle = \frac{|01\rangle + |11\rangle}{\sqrt{2}}
 $$
@@ -296,9 +299,11 @@ $$
 $|\mathcal{P}_1| = 16$。对于 $n$ 个量子比特，Pauli群 $\mathcal{P}_n$ 是 $n$ 重张量积的集合（也乘相位因子 $\pm 1, \pm i$），阶数为 $4 \cdot 4^n = 4^{n+1}$。
 
 **例4.7** $\mathcal{P}_2$ 中的元素包括：
+
 $$
 X \otimes I,\; I \otimes Z,\; X \otimes Z,\; Y \otimes Y,\; \ldots
 $$
+
 以及它们乘以 $\pm 1, \pm i$ 后的结果。
 
 **即时练习**：Pauli群 $\mathcal{P}_1$ 有多少个元素？为什么包含 $\pm 1, \pm i$ 相位因子？
@@ -406,12 +411,15 @@ Clifford门最重要的性质是它"简单"地传播Pauli算子。在量子纠�
 $$
 \text{CNOT} (X \otimes I) \text{CNOT}^\dagger = X \otimes X
 $$
+
 $$
 \text{CNOT} (I \otimes X) \text{CNOT}^\dagger = I \otimes X
 $$
+
 $$
 \text{CNOT} (Z \otimes I) \text{CNOT}^\dagger = Z \otimes I
 $$
+
 $$
 \text{CNOT} (I \otimes Z) \text{CNOT}^\dagger = Z \otimes Z
 $$
@@ -1429,6 +1437,7 @@ CNOT分解：$\text{CNOT} = (I \otimes H) \cdot CZ \cdot (I \otimes H)$
 ### 一个具体例子：从T门到物理脉冲
 
 本章我们说T门是：
+
 $$
 T = \begin{pmatrix} 1 & 0 \\ 0 & e^{i\pi/4} \end{pmatrix}
 $$

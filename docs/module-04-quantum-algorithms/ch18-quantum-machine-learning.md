@@ -242,9 +242,10 @@ $$
 3. 在辅助比特上执行 Hadamard 测试：
    - 辅助比特为 $|0\rangle$ 时，不做操作；为 $|1\rangle$ 时，控制目标寄存器
 4. 测量辅助比特，得到：
-   $$
-   \text{Pr}(0) - \text{Pr}(1) = \text{Re}\!\left[ \langle 0^n | U_{\phi}^{\dagger}(\boldsymbol{x}') U_{\phi}(\boldsymbol{x}) | 0^n \rangle \right]
-   $$
+
+$$
+\text{Pr}(0) - \text{Pr}(1) = \text{Re}\!\left[ \langle 0^n | U_{\phi}^{\dagger}(\boldsymbol{x}') U_{\phi}(\boldsymbol{x}) | 0^n \rangle \right]
+$$
 
 取模平方后即得核函数值。
 
@@ -750,7 +751,6 @@ $$
 $$
 
 $$
-
 = \frac{1}{2} [\cos(0.5 + \pi/2) - \cos(0.5 - \pi/2)] = \frac{1}{2} [-\sin 0.5 - (-\sin(-0.5))] = -\sin 0.5
 $$
 
@@ -870,6 +870,7 @@ QML 的理论加速（如 $O(\log N)$ vs $O(N)$）往往忽略了一个关键因
 **6.8** 量子核方法中，为什么测量核函数需要用 SWAP 测试或 Hadamard 测试？简述 Hadamard 测试的电路结构和测量结果与核函数值的关系。
 
 **6.9** 证明：对于单量子比特的 $R_y(\theta)$，期望值 $f(\theta) = \langle 0| R_y^{\dagger}(\theta) Z R_y(\theta) |0\rangle$ 满足参数偏移规则：
+
 $$
 \frac{\partial f(\theta)}{\partial \theta} = \frac{1}{2}[f(\theta + \pi/2) - f(\theta - \pi/2)]
 $$

@@ -294,6 +294,7 @@ A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}, \quad \boldsymbol{b} = \begin{
 $$
 
 **经典验证**：
+
 $$
 A^{-1} = \frac{1}{3} \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}, \quad \boldsymbol{x} = A^{-1}\boldsymbol{b} = \frac{1}{3} \begin{pmatrix} 2 \\ -1 \end{pmatrix} = \begin{pmatrix} 0.6667 \\ -0.3333 \end{pmatrix}
 $$
@@ -302,22 +303,30 @@ $$
 
 1. 制备 $|b\rangle = |0\rangle$（因为 $\boldsymbol{b} = (1,0)^{\mathsf T}$，归一化后仍是 $|0\rangle$）
 2. 计算 $A$ 的特征分解：
-   $$
-   \lambda_1 = 1,\ |u_1\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle); \quad \lambda_2 = 3,\ |u_2\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)
-   $$
+
+$$
+\lambda_1 = 1,\ |u_1\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle); \quad \lambda_2 = 3,\ |u_2\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)
+$$
+
 3. QPE 提取 $\lambda_1 = 1$ 和 $\lambda_2 = 3$
 4. 条件旋转施加因子 $\lambda_j^{-1}$：
-   $$
-   \frac{1}{\sqrt{2}}|1\rangle |u_1\rangle + \frac{1}{\sqrt{2}}\cdot\frac{1}{3}|3\rangle |u_2\rangle
-   $$
+
+$$
+\frac{1}{\sqrt{2}}|1\rangle |u_1\rangle + \frac{1}{\sqrt{2}}\cdot\frac{1}{3}|3\rangle |u_2\rangle
+$$
+
 5. 逆 QPE 得到：
-   $$
-   |x\rangle \propto \frac{1}{\sqrt{2}}|u_1\rangle + \frac{1}{3\sqrt{2}}|u_2\rangle
-   $$
+
+$$
+|x\rangle \propto \frac{1}{\sqrt{2}}|u_1\rangle + \frac{1}{3\sqrt{2}}|u_2\rangle
+$$
+
 6. 回到计算基：
-   $$
-   |x\rangle = \frac{1}{\sqrt{1^2 + (1/3)^2}} \left[ |0\rangle + \frac{2}{3}|1\rangle \right] \approx 0.958|0\rangle + 0.287|1\rangle
-   $$
+
+$$
+|x\rangle = \frac{1}{\sqrt{1^2 + (1/3)^2}} \left[ |0\rangle + \frac{2}{3}|1\rangle \right] \approx 0.958|0\rangle + 0.287|1\rangle
+$$
+
    这与经典解 $|x\rangle = (2/3, -1/3)^{\mathsf T}$ 的振幅编码一致（归一化后）。
 
 ### 7.2.5 适用条件与局限性
@@ -407,6 +416,7 @@ $$
 其中每个 $H_j$ 作用在小规模子空间上（如 1 个或 2 个量子比特），可以高效实现。
 
 **例 7.4** 一维横场伊辛模型（TFIM）：
+
 $$
 H = -J \sum_{i=1}^{n-1} Z_i Z_{i+1} - h \sum_{i=1}^{n} X_i
 $$
@@ -626,9 +636,11 @@ $$
 - **处理器**：Sycamore（53 个可调谐 transmon 量子比特）
 - **实验规模**：$n = 12$ 个量子比特的一维链
 - **哈密顿量**：
-  $$
-  H = \sum_{i=1}^{n-1} J_i Z_i Z_{i+1} + \sum_{i=1}^{n} h_i X_i
-  $$
+
+$$
+H = \sum_{i=1}^{n-1} J_i Z_i Z_{i+1} + \sum_{i=1}^{n} h_i X_i
+$$
+
   其中 $J_i$ 通过量子比特间的耦合器可调，$h_i$ 通过微波驱动控制
 
 ### 7.5.2 实验设计与结果
@@ -722,9 +734,11 @@ Sycamore 的单比特门保真度 $99.85\%$，两比特门保真度 $99.4\%$。�
 你更倾向于哪种观点？请从技术角度分析，给出至少三条理由支持你的立场。
 
 **7.12** **实验方案设计**。你手头有一个 20 量子比特的超导量子处理器，单门保真度 $99.9\%$，两比特门保真度 $99.5\%$。你想模拟一维 Heisenberg 模型：
+
 $$
 H = \sum_{i=1}^{19} J (X_i X_{i+1} + Y_i Y_{i+1} + Z_i Z_{i+1})
 $$
+
 其中 $J = 1$（以 MHz 为单位），目标模拟时间 $t = 10$（以 $1/J$ 为单位），要求 Trotter 截断误差 $\leq 1\%$。
 (a) 选择 Trotter 阶数和步数 $r$
 (b) 估计总门数

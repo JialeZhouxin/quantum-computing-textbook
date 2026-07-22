@@ -203,6 +203,7 @@ $$
 $$
 \rho^2 = |0\rangle\langle 0|0\rangle\langle 0| = |0\rangle\langle 0| = \rho
 $$
+
 $$
 \text{Tr}(\rho^2) = \text{Tr}(\rho) = 1 \quad \text{——纯态}
 $$
@@ -212,6 +213,7 @@ $$
 $$
 \rho^2 = \frac{1}{4}(|0\rangle\langle 0| + |1\rangle\langle 1|)
 $$
+
 $$
 \text{Tr}(\rho^2) = \frac{1}{4}(1 + 1) = \frac{1}{2} < 1 \quad \text{——混态}
 $$
