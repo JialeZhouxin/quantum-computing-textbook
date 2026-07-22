@@ -1,4 +1,6 @@
-docs_dir: .
+docs_dir: docs
+
+site_dir: site
 
 site_name: 量子计算导论
 site_description: 从基础数学到量子硬件的系统性量子计算教程
@@ -68,6 +70,7 @@ plugins:
   - search
   - git-revision-date-localized:
       enable_creation_date: true
+      enable_git_follow: false
   - minify:
       minify_html: true
 
