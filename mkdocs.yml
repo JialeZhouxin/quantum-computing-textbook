@@ -1,0 +1,142 @@
+docs_dir: .
+
+site_name: 量子计算导论
+site_description: 从基础数学到量子硬件的系统性量子计算教程
+site_author: quantum-computing-textbook
+copyright: CC BY-NC 4.0
+
+theme:
+  name: material
+  language: zh
+  palette:
+    - scheme: default
+      primary: black
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: 深色模式
+    - scheme: slate
+      primary: black
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: 浅色模式
+  font:
+    text: Lora
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.annotate
+    - content.copy
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/
+  generator: false
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - minify:
+      minify_html: true
+
+nav:
+  - 首页: README.md
+
+  - 模块一 · 数学基础:
+    - module-01-mathematical-foundations/ch01-linear-algebra.md
+    - module-01-mathematical-foundations/ch02-quantum-mechanics-postulates.md
+    - module-01-mathematical-foundations/ch03-density-matrix.md
+
+  - 模块二 · 经典计算:
+    - module-02-classical-computation/ch04-classical-computation.md
+    - module-02-classical-computation/ch05-algorithms-and-complexity.md
+    - module-02-classical-computation/ch06-information-theory.md
+
+  - 模块三 · 量子计算原理:
+    - module-03-quantum-computation-principles/ch07-qubit-single-qubit-gates.md
+    - module-03-quantum-computation-principles/ch08-multi-qubit-entanglement.md
+    - module-03-quantum-computation-principles/ch09-quantum-state-tomography.md
+    - module-03-quantum-computation-principles/ch10-quantum-circuits-universal-gate-set.md
+    - module-03-quantum-computation-principles/ch11-quantum-process-tomography.md
+    - module-03-quantum-computation-principles/ch12-superconducting-hardware-gate-physics.md
+
+  - 模块四 · 量子算法:
+    - module-04-quantum-algorithms/ch13-basic-quantum-algorithms.md
+    - module-04-quantum-algorithms/ch14-qft-phase-estimation.md
+    - module-04-quantum-algorithms/ch15-shor-algorithm.md
+    - module-04-quantum-algorithms/ch16-grover-algorithm.md
+    - module-04-quantum-algorithms/ch17-vqe-qaoa.md
+    - module-04-quantum-algorithms/ch18-quantum-machine-learning.md
+    - module-04-quantum-algorithms/ch19-quantum-linear-algebra-simulation.md
+    - module-04-quantum-algorithms/ch20-superconducting-compilation-error-mitigation.md
+
+  - 模块五 · 噪声与容错:
+    - module-05-noise-correction-fault-tolerance/ch21-quantum-noise-decoherence.md
+    - module-05-noise-correction-fault-tolerance/ch22-quantum-error-correction-codes.md
+    - module-05-noise-correction-fault-tolerance/ch23-error-suppression-mitigation.md
+    - module-05-noise-correction-fault-tolerance/ch24-fault-tolerant-computation.md
+
+  - 模块六 · 量子硬件:
+    - module-06-quantum-hardware/ch25-superconducting-qubits.md
+    - module-06-quantum-hardware/ch26-other-platforms.md
+    - module-06-quantum-hardware/ch27-quantum-control-readout.md
+
+  - 习题解答:
+    - 第1章 线性代数: solutions/ch01-linear-algebra-solutions.md
+    - 第2章 量子力学基本假设: solutions/ch02-quantum-mechanics-postulates-solutions.md
+    - 第3章 密度矩阵与混合态: solutions/ch03-density-matrix-solutions.md
+    - 第4章 经典计算模型: solutions/ch04-classical-computation-solutions.md
+    - 第5章 算法与复杂度: solutions/ch05-algorithms-and-complexity-solutions.md
+    - 第6章 信息论基础: solutions/ch06-information-theory-solutions.md
+    - 第7章 量子比特与单比特门: solutions/ch07-qubit-single-qubit-gates-solutions.md
+    - 第8章 多量子比特与纠缠: solutions/ch08-multi-qubit-entanglement-solutions.md
+    - 第9章 量子态层析: solutions/ch09-quantum-state-tomography-solutions.md
+    - 第10章 量子电路与通用门集: solutions/ch10-quantum-circuits-universal-gate-set-solutions.md
+    - 第11章 量子过程层析: solutions/ch11-quantum-process-tomography-solutions.md
+    - 第12章 超导硬件与门物理: solutions/ch12-superconducting-hardware-gate-physics-solutions.md
+    - 第13章 基础量子算法: solutions/ch13-basic-quantum-algorithms-solutions.md
+    - 第14章 QFT与相位估计: solutions/ch14-qft-phase-estimation-solutions.md
+    - 第15章 Shor算法: solutions/ch15-shor-algorithm-solutions.md
+    - 第16章 Grover算法: solutions/ch16-grover-algorithm-solutions.md
+    - 第17章 VQE与QAOA: solutions/ch17-vqe-qaoa-solutions.md
+    - 第18章 量子机器学习: solutions/ch18-quantum-machine-learning-solutions.md
+    - 第19章 量子线性代数与模拟: solutions/ch19-quantum-linear-algebra-simulation-solutions.md
+    - 第20章 编译与错误缓解: solutions/ch20-compilation-error-mitigation-solutions.md
+    - 第21章 量子噪声与退相干: solutions/ch21-quantum-noise-decoherence-solutions.md
+    - 第22章 量子纠错码: solutions/ch22-quantum-error-correction-codes-solutions.md
+    - 第23章 错误抑制与缓减: solutions/ch23-error-suppression-mitigation-solutions.md
+    - 第24章 容错量子计算: solutions/ch24-fault-tolerant-computation-solutions.md
+    - 第25章 超导量子比特: solutions/ch25-superconducting-qubits-solutions.md
+    - 第27章 量子控制与读出: solutions/ch27-quantum-control-readout-solutions.md
