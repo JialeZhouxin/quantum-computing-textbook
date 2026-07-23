@@ -1162,7 +1162,11 @@ $$
 \sum_{i} |i\rangle \langle i| = I
 $$
 
-这个公式称为**完备性关系**（completeness relation）。它表明这组基"张满"了整个空间。
+这个公式称为**完备性关系**（completeness relation）。代数上，它表明该组基**张满**整个空间：各一维投影拼起来等于单位算符，没有遗漏的方向。
+
+物理内核不止“维数凑齐”。**完备性**问的是：在你选定的**表象**（一组基）下，投影分辨率 $\sum_i |i\rangle\langle i|$ 能否完整描述任意态——任一 $|\psi\rangle$ 的分量是否都能被这组基读干净。缺一条基，就有态的一部分落在“坐标轴外”，该表象对这个态不完整。
+
+选取某可观测量的本征基，就是在选一种**物理表象入口**（例如能量表象、$Z$ 表象）。本节主语始终是**基 / 表象是否完备**，而不是“算符空间本身完备”。
 
 **验证**（在 $\mathbb{C}^2$ 中）：
 
@@ -1176,21 +1180,40 @@ $$
 |+\rangle\langle +| + |-\rangle\langle -| = \frac{1}{2}\begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix} + \frac{1}{2}\begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I
 $$
 
+同一抽象态空间，换一组完备基就换一套合法表象；$\{|0\rangle,|1\rangle\}$ 与 $\{|+\rangle,|-\rangle\}$ 都能完整描述 $\mathbb{C}^2$ 中的任意态，只是坐标不同。
+
 ### 1.7.4 用完备性关系展开态矢
 
-完备性关系的一个强大应用：在任何基下展开一个态矢。
+完备性关系给出把抽象态**投到选定表象**的标准手续。插入 $I = \sum_i |i\rangle\langle i|$，不是花招，而是把 $|\psi\rangle$ 分解为该表象下的坐标展开：
 
 $$
 |\psi\rangle = I |\psi\rangle = \left( \sum_i |i\rangle \langle i| \right) |\psi\rangle = \sum_i |i\rangle \langle i|\psi\rangle = \sum_i \langle i|\psi\rangle \cdot |i\rangle
 $$
 
-**例 1.59**  在标准基下展开 $|+\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)$：
+逐步读：
+
+1. $|\psi\rangle$ 本身是表象无关的抽象态矢（Dirac 对象）。
+2. 对每个基矢，内积 $c_i := \langle i|\psi\rangle$ 是**复数标量**——它是 $|\psi\rangle$ 在方向 $|i\rangle$ 上的坐标，不再是 ket，也不再是矩阵。
+3. 再与 $|i\rangle$ 相乘并求和，得到该表象中的展开式 $\sum_i c_i |i\rangle$。
+
+换一组完备基 $\{|i'\rangle\}$ 重复同一手续，得到另一套系数 $\{c_i'\}$：这就是**表象变换**（同一态，不同坐标）。  
+（脚注式提醒：若表象取连续位置基 $\{|x\rangle\}$，则坐标函数 $c(x)=\langle x|\psi\rangle$ 即通常所说的波函数 $\psi(x)$；本章正文统一用语为态矢与表象坐标。）
+
+**系数规则（务必分清“数”与“矢”）**
+
+- $c_i = \langle i|\psi\rangle \in \mathbb{C}$：行矢量与列矢量收缩后的结果是**标量**。
+- 标量与任何 ket / bra / 算符相乘时**可随意左右挪动**（在线性代数约定下，复数与向量乘法可交换书写位置）：例如 $|i\rangle c_i = c_i |i\rangle$。
+- **不可**把仍带 Dirac 结构的对象当标量挪——$|i\rangle$、$\langle i|$、$|i\rangle\langle i|$ 都不是数；尤其不能把投影算子 $|i\rangle\langle i|$ 从式中“当系数抽走”。
+- 记忆口诀：先完成 $\langle\cdot|\cdot\rangle$ 收缩得到 $c_i$，之后只有 $c_i$ 能自由挪；收缩前的 ket / bra / 外积必须保持算符次序。
+
+**例 1.59**  在标准基（$Z$ 表象）下展开 $|+\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)$：
 
 $$
 |+\rangle = |0\rangle\langle 0|+\rangle + |1\rangle\langle 1|+\rangle = |0\rangle \cdot \frac{1}{\sqrt{2}} + |1\rangle \cdot \frac{1}{\sqrt{2}}
 $$
 
-其中 $\langle 0|+\rangle = \frac{1}{\sqrt{2}}(1+0)\cdot\frac{1}{\sqrt{2}}(1+1)^T$... 直接算更简单：$\langle 0|+\rangle = \frac{1}{\sqrt{2}}\langle 0|(|0\rangle+|1\rangle) = \frac{1}{\sqrt{2}}(\langle 0|0\rangle + \langle 0|1\rangle) = \frac{1}{\sqrt{2}}$。
+其中 $c_0 = \langle 0|+\rangle = \frac{1}{\sqrt{2}}$，$c_1 = \langle 1|+\rangle = \frac{1}{\sqrt{2}}$ 都是标量，故可写成 $\frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle$，也可写成 $|0\rangle\frac{1}{\sqrt{2}} + |1\rangle\frac{1}{\sqrt{2}}$——两种写法等价。  
+直接算系数：$\langle 0|+\rangle = \frac{1}{\sqrt{2}}\langle 0|(|0\rangle+|1\rangle) = \frac{1}{\sqrt{2}}(\langle 0|0\rangle + \langle 0|1\rangle) = \frac{1}{\sqrt{2}}$。
 
 **例 1.60**  用完备性关系计算内积 $\langle \varphi | \psi \rangle$：
 
@@ -1198,7 +1221,7 @@ $$
 \langle \varphi | \psi \rangle = \langle \varphi | I | \psi \rangle = \sum_i \langle \varphi | i \rangle \langle i | \psi \rangle = \sum_i \overline{\langle i | \varphi \rangle} \langle i | \psi \rangle
 $$
 
-这就是内积的坐标表示。
+这就是内积的**坐标表示**：两边的态都先投到同一完备表象，再对系数做（共轭）点乘。
 
 ### 1.7.5 投影算子的性质
 
@@ -1227,7 +1250,7 @@ $$
 P = |e_1\rangle\langle e_1| + |e_2\rangle\langle e_2| = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{pmatrix}
 $$
 
-**投影算子在测量中的角色**（预览）：当测量一个量子态 $|\psi\rangle$ 时，得到结果 $i$ 的概率为 $\langle \psi | P_i | \psi \rangle$，测量后的态为 $\frac{P_i |\psi\rangle}{\sqrt{\langle \psi | P_i | \psi \rangle}}$。这就是量子测量公设。
+**投影算子在测量中的角色**（预览）：测量某可观测量，实质上是把态**投到该可观测量的本征表象**上——完备性保证结果标签 $i$ 能盖住全部可能结局。得到结果 $i$ 的概率为 $\langle \psi | P_i | \psi \rangle$，测量后的态为 $\frac{P_i |\psi\rangle}{\sqrt{\langle \psi | P_i | \psi \rangle}}$。完整测量公设见第 2 章。
 
 ---
 
