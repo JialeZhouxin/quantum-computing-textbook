@@ -11,6 +11,7 @@
 > - 如何从测量数据重建布洛赫向量
 > - 多比特系统的泡利基测量方案
 > - 最大似然估计的基本思想
+> - 如何把 QST 重建的 $\hatho$ 接到纠缠度量（PPT / 并发度等）
 > - QST面临的扩展性挑战
 >
 > **学完本章，你将能够：**
@@ -82,7 +83,7 @@
 | **量子态验证** | 确认制备的量子态是否符合预期 |
 | **噪声表征** | 通过重建密度矩阵，分析退相干和噪声的影响 |
 | **量子门标定** | 结合量子过程层析（QPT），标定量子门的保真度 |
-| **纠缠检测** | 重建多比特密度矩阵后，可以计算纠缠度量 |
+| **纠缠检测 / 度量** | 重建 $\hatho$ 后计算 PPT、负度、并发度；或用见证少测几个 Pauli（§3.4） |
 | **量子纠错** | 诊断编码态的保真度，评估纠错性能 |
 
 > **为什么不用更少的测量？**
@@ -444,9 +445,112 @@ $$
 
 ---
 
-## 3.4 可扩展性问题
+## 3.4 从 QST 到纠缠度量
 
-### 3.4.1 指数增长的测量数
+第 2 章给出了 PPT、负度、并发度、纠缠见证等工具，但都默认**已经有一个合法密度矩阵 $\rho$**。实验室里 $\rho$ 不会写在黑板上——它来自 **QST（或等价重建）**。本节把两条线接起来：
+
+$$
+\text{测量设定}
+\ \xrightarrow{\text{统计}}
+\ \hat\rho
+\ \xrightarrow{\text{选度量}}
+\ \text{判定 / 数值}.
+$$
+
+### 3.4.1 为何必须先重建 $\rho$（或等价信息）
+
+| 纠缠工具（ch08 §2.4） | 对输入的要求 | 与 QST 的接口 |
+|---|---|---|
+| PPT 判据 | 完整矩阵 $\rho$（至少在乘积基下） | 对 $\hat\rho$ 做部分转置，看谱 |
+| 负度 $\mathcal{N}$ | 同上 | $\mathcal{N}(\hat\rho)$ 由 $\hat\rho^{T_B}$ 负本征值算出 |
+| 并发度 $\mathcal{C}$ | 两比特 $\rho$ | 纯态用系数；混态用 Wootters 公式作用于 $\hat\rho$ |
+| 纠缠见证 $W$ | 若干 $\langle P\rangle$ 或 $\mathrm{Tr}(W\rho)$ | **可不全层析**：只测 $W$ 展开所需的 Pauli；完整 QST 则事后算 $\mathrm{Tr}(W\hat\rho)$ |
+
+因此：
+
+- **要算 PPT / $\mathcal{N}$ / $\mathcal{C}$（混态）**：标准路径是两比特（或两体）**信息完备 QST → $\hat\rho$ → 代入 ch08 公式**。  
+- **只要“检出纠缠”且目标态已知**：可用见证，测量集远小于 $3^n$，但仍是“层析思想”的稀疏版——测的是 $\rho$ 的线性泛函，不是神秘新物理。
+
+### 3.4.2 操作流水线（两比特标准路径）
+
+1. **制备**：重复制备待检态（如宣称的贝尔对、门后两比特输出）。  
+2. **QST 测量设定**：两比特泡利设定共 $3^2=9$ 种（§3.3.2），每种收集足够 shots。  
+3. **重建 $\hat\rho$**：线性反演得 Pauli 系数再合成矩阵；若出现负本征值，用 **MLE / 投影到物理态**（§3.3.3）得物理 $\hat\rho\succeq0$，$\mathrm{Tr}\hat\rho=1$。  
+4. **选度量并计算**（公式见 ch08）：  
+   - 判定：部分转置 $\hat\rho^{T_B}$ 是否有负本征值（PPT）；  
+   - 定量：$\mathcal{N}(\hat\rho)$ 或 $\mathcal{C}(\hat\rho)$；  
+   - 或抽检：$\mathrm{Tr}(W\hat\rho)$ 是否显著为负。  
+5. **报告**：除中心值外，应用 bootstrap / 多次重复实验给出不确定度——**度量是 $\hat\rho$ 的非线性函数，shots 有限时误差会传递**。
+
+> **与保真度的分工（§3.3.4）：** $F(\hat\rho,\rho_{\mathrm{target}})$ 回答“像不像目标”；纠缠度量回答“子系统之间有没有、有多少量子关联”。两者都常在同一次 QST 之后计算，问题不同。
+
+### 3.4.3 各度量如何接到 $\hat\rho$
+
+**PPT**  
+$$
+\hat\rho\ \xrightarrow{T_B}\ \hat\rho^{T_B}\ \xrightarrow{\mathrm{eig}}\ \{\lambda_i\}.
+$$
+存在 $\lambda_i<0$ $\Rightarrow$ 确认（NPT）纠缠。操作细节与例见 ch08 §2.4.1。
+
+**负度**  
+$$
+\mathcal{N}(\hat\rho)=\sum_{\lambda_i(\hat\rho^{T_B})<0}|\lambda_i|
+\quad\text{（或等价迹范数定义）}.
+$$
+$\mathcal{N}=0$ 仅说明 PPT，高维不能排除 bound entanglement（ch08）。
+
+**并发度（两比特）**  
+- 若 $\hat\rho$ 接近纯态且已有计算基振幅估计，可用 $\mathcal{C}\approx 2|ad-bc|$；  
+- 一般混态：对 $\hat\rho$ 用 Wootters 公式（ch08 §2.4.3）。  
+$\mathcal{C}=0$ 可分；$\mathcal{C}=1$ 最大纠缠（两比特）。
+
+**见证**  
+不必先拼满 $4\times4$ 矩阵：把 $W=\sum_k c_k P_k$ 展开，QST 流程里**只跑需要的 Pauli 设定**估 $\langle P_k\rangle$，得 $\langle W\rangle=\sum_k c_k\langle P_k\rangle$。  
+若已做完整 QST，则直接 $\langle W\rangle=\mathrm{Tr}(W\hat\rho)$。  
+$\langle W\rangle<0$ 且统计显著 $\Rightarrow$ 检出纠缠；$\langle W\rangle\ge0$ **不能**证明可分。
+
+### 3.4.4 例：理想贝尔态 vs 有噪声的 $\hat\rho$
+
+**例 3.8（理想）** 设 QST 在无限样本极限下精确得到  
+$\rho=|\Phi^+\rangle\langle\Phi^+|$。  
+则（ch08 已算）：
+
+- PPT：$\rho^{T_B}$ 有本征值 $-1/2$ → 纠缠；  
+- $\mathcal{N}=1/2$，$\mathcal{C}=1$；  
+- 见证 $W=\frac12 I-|\Phi^+\rangle\langle\Phi^+|$ 给出 $\mathrm{Tr}(W\rho)=-1/2<0$。
+
+**例 3.9（退相干后的 Werner 型，示意）** 实验上常见“贝尔对角”混态
+
+$$
+\rho_p = p\,|\Phi^+\rangle\langle\Phi^+| + (1-p)\,\frac{I}{4},
+\quad 0\le p\le 1.
+$$
+
+（等价于白噪声掺入。）已知：
+
+- $p>1/3$ 时 NPT 纠缠（两比特 PPT 充要）；  
+- 并发度 $\mathcal{C}(\rho_p)=\max\bigl(0,\frac{3p-1}{2}\bigr)$（标准结果，可作推导练习）。
+
+**QST 侧的读法：** 你用 9 组 Pauli 测量估出 15 个独立系数，拟合/重建得到 $\hat p$ 或直接得到 $\hat\rho$，再算 $\mathcal{C}(\hat\rho)$ 或做 PPT。  
+若 $p=0.8$，则 $\mathcal{C}=(3\cdot0.8-1)/2=0.7$；若有限 shots 使 $\hat\rho$ 偏离 $\rho_p$，报告的应是 $\mathcal{C}(\hat\rho)$ 并带误差，而不是把理想公式当实验值。
+
+**例 3.10（非物理重建的危害）** 线性反演若给出带负本征值的“$\tilde\rho$”，直接套并发度可能得到无意义或偏置结果。应先 MLE 投影到物理态再算度量——**纠缠数字不能建立在非物理矩阵上**。
+
+### 3.4.5 有限样本与可扩展性预告
+
+- 同一套 shots 既支撑 $\hat\rho$ 也支撑 $\mathcal{C}(\hat\rho)$；度量的方差通常 **不小于** 矩阵元估计的方差（非线性放大）。  
+- $n$ 增大时完整 QST 指数贵（下一节），完整 $\mathcal{C}$ 也不可扩展；实践转向：纠缠见证、随机化测量 / 阴影上的纠缠估计、子系统层析等——思想仍是“从测量估 $\rho$ 的函数”，不是抛弃层析。
+
+**即时练习：** 对两比特系统，写出“测完 QST 后判定是否 NPT 纠缠”的最少代数步骤。  
+**即时练习：** 为何 $\mathrm{Tr}(W\hat\rho)\ge0$ 不能推出态可分？  
+**即时练习：** 若线性反演 $\tilde\rho$ 有负本征值，应在算并发度之前做什么？
+
+---
+
+'''
+## 3.5 可扩展性问题
+
+### 3.5.1 指数增长的测量数
 
 QST面临的最大挑战是**可扩展性（scalability）**。随着量子比特数 $n$ 的增长，确定密度矩阵所需的测量数呈指数增长。
 
@@ -476,7 +580,7 @@ $$
 >
 > 对10个量子比特进行完整QST，需要测量 $3^{10} = 59049$ 种不同的基设置。假设每种设置只用100次测量（已是非常低的统计精度），总测量次数接近600万次。对20个量子比特，这个数字已经超过宇宙中可观测的原子数。
 
-### 3.4.2 为什么QST这么"贵"？
+### 3.5.2 为什么QST这么"贵"？
 
 根本原因在于量子力学的线性结构：
 
@@ -498,7 +602,7 @@ $$
 
 **即时练习**：为什么QST所需的测量数随比特数指数增长？根本原因是什么？
 
-### 3.4.3 应对策略
+### 3.5.3 应对策略
 
 研究人员发展了几种方法来缓解QST的可扩展性问题：
 
@@ -527,7 +631,7 @@ $$
 
 **即时练习**：列举三种缓解QST可扩展性问题的策略，并简要说明各适用于什么场景。
 
-### 3.4.4 实际例子：4比特QST
+### 3.5.4 实际例子：4比特QST
 
 一个4比特系统（$d=16$）的完整QST需要测量 $3^4 = 81$ 种基设置。假设每种设置测量100次，共需8100次测量。
 
@@ -557,19 +661,22 @@ $$
 | 术语 | 英文 | 节 |
 |------|------|----|
 | 保真度 | fidelity | 3.3.4 |
+| 纠缠度量（经 QST） | entanglement measures via QST | 3.4 |
+| PPT / 负度 / 并发度（接口） | PPT / negativity / concurrence | 3.4 |
+| 纠缠见证（与层析） | entanglement witness | 3.4 |
 | 布洛赫向量 | Bloch vector | 3.2.1 |
 | 测量完备性 | informationally complete | 3.1.3 |
 | 测量设置 | measurement setting | 3.3.2 |
 | 层析 | tomography | 3.1 |
-| 压缩感知QST | compressed sensing QST | 3.4.3 |
-| 阴影层析 | classical shadow tomography | 3.4.3 |
+| 压缩感知QST | compressed sensing QST | 3.5.3 |
+| 阴影层析 | classical shadow tomography | 3.5.3 |
 | 密度矩阵 | density matrix | 3.1.2 |
 | 泡利基 | Pauli basis | 3.3.1 |
 | 泡利期望值 | Pauli expectation value | 3.3.1 |
-| 可扩展性 | scalability | 3.4 |
+| 可扩展性 | scalability | 3.5 |
 | 统计误差 | statistical error | 3.2.4 |
 | 信息完备 | informationally complete | 3.1.3 |
-| 直接保真度估计 | direct fidelity estimation | 3.4.3 |
+| 直接保真度估计 | direct fidelity estimation | 3.5.3 |
 | 最大似然估计 | maximum likelihood estimation (MLE) | 3.3.3 |
 
 ## 本章小结
@@ -637,7 +744,12 @@ $$
 
 **3.9** 对于一个已知是纯态的单比特系统，QST所需的独立测量数可以减少到多少个？请解释。
 
-**3.10** 你认为未来大规模的量子计算验证是否会使用完整QST？结合3.4节的内容，说明你的理由。
+**3.10** 你认为未来大规模的量子计算验证是否会使用完整QST？结合 §3.5 可扩展性的内容，说明你的理由。
+
+**3.11** **QST → 纠缠度量。** 对两比特态完成（理想）QST 后得到 $\hat\rho$。  
+(a) 写出用 $\hat\rho$ 做 PPT 判定的步骤。  
+(b) 说明并发度 $\mathcal{C}(\hat\rho)$ 与保真度 $F(\hat\rho,|\Phi^+\rangle\langle\Phi^+|)$ 分别回答什么问题。  
+(c) 为何线性反演得到带负本征值的矩阵时，不应直接报并发度？应先做什么？
 
 ---
 
