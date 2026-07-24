@@ -488,7 +488,7 @@ $$
 
 ### 1.3.1 从矩阵指数到旋转
 
-回忆 1.10 节的矩阵指数：如果 $A$ 是厄米矩阵，则 $e^{-i\theta A}$ 是幺正矩阵。对于泡利矩阵，我们有：
+矩阵指数、幺正性与用谱分解计算 $e^{-i\theta H}$ 的代数工具见模块一第 1 章 §1.10；本节在**已有布洛赫球**的前提下，把它们读成单比特旋转门。回忆：如果 $A$ 是厄米矩阵，则 $e^{-i\theta A}$ 是幺正矩阵。对于泡利矩阵，我们有：
 
 $$
 e^{-i\theta X} = I\cos\theta - iX\sin\theta = \begin{pmatrix} \cos\theta & -i\sin\theta \\ -i\sin\theta & \cos\theta \end{pmatrix}

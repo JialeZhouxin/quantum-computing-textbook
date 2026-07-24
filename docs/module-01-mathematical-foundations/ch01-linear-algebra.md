@@ -984,7 +984,7 @@ $$
 \det(A - \lambda I) = 0
 $$
 
-这个方程称为**特征方程**，左边的多项式称为**特征多项式**。
+这个方程称为**特征方程**，左边的多项式称为**特征多项式**。在物理文献中，同一条件也常被称为**久期方程**（secular equation）。
 
 **例 1.49**  求 $X = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$ 的本征值。
 
@@ -1851,50 +1851,29 @@ $$
 
 其解为 $|\psi(t)\rangle = e^{-iHt/\hbar} |\psi(0)\rangle$。演化算符 $U = e^{-iHt/\hbar}$ 是幺正的，保证了量子计算的**可逆性**。
 
-### 1.10.4 旋转算符
+单比特门在布洛赫球上的旋转图像——$R_x, R_y, R_z$ 与 $S, T$ 等——依赖态的几何表示与门语言，放在**模块三第 1 章（单比特门）**系统展开；本节只准备矩阵指数与谱工具。
 
-在量子计算中，绕 Bloch 球各轴的旋转是最基本的操作：
+### 1.10.4 通过谱分解计算矩阵函数
 
-$$
-R_x(\theta) = e^{-i\theta X/2} = \cos\frac{\theta}{2} I - i \sin\frac{\theta}{2} X
-$$
+要用谱分解写 $f(H)$，须先知道 $H$ 的本征值（谱）。回顾 **§1.6**：把本征方程 $H|v\rangle=\lambda|v\rangle$ 写成 $(H-\lambda I)|v\rangle=0$，非零解存在当且仅当
 
 $$
-R_y(\theta) = e^{-i\theta Y/2} = \cos\frac{\theta}{2} I - i \sin\frac{\theta}{2} Y
+\det(H - \lambda I) = 0
 $$
 
-$$
-R_z(\theta) = e^{-i\theta Z/2} = \cos\frac{\theta}{2} I - i \sin\frac{\theta}{2} Z
-$$
+该方程即**特征方程**；左边多项式是特征多项式。物理与量子化学文献里常把它叫做**久期方程**（secular equation）——名字不同，手续相同：解久期方程得 $\{\lambda_i\}$，再求本征矢，凑成谱分解 $H=\sum_i \lambda_i |\lambda_i\rangle\langle\lambda_i|$（厄米情形本征矢可取标准正交，见 §1.6.6）。
 
-**例 1.82**  $R_z(\theta)$ 的矩阵形式：
-
-$$
-R_z(\theta) = \cos\frac{\theta}{2}\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} - i \sin\frac{\theta}{2} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} = \begin{pmatrix} e^{-i\theta/2} & 0 \\ 0 & e^{i\theta/2} \end{pmatrix}
-$$
-
-当 $\theta = \pi$ 时，$R_z(\pi) = \begin{pmatrix} -i & 0 \\ 0 & i \end{pmatrix} = -iZ$（相差一个全局相位）。
-
-**例 1.83**  相位门 $S$ 和 $T$：
-
-$$
-S = R_z(\pi/2) = \begin{pmatrix} 1 & 0 \\ 0 & i \end{pmatrix}, \quad
-T = R_z(\pi/4) = \begin{pmatrix} 1 & 0 \\ 0 & e^{i\pi/4} \end{pmatrix}
-$$
-
-### 1.10.5 通过谱分解计算矩阵函数
-
-如果矩阵 $H$ 可对角化 $H = \sum_i \lambda_i |\lambda_i\rangle\langle \lambda_i|$，则：
+有了谱之后，矩阵函数极简：
 
 $$
 f(H) = \sum_i f(\lambda_i) |\lambda_i\rangle\langle \lambda_i|
 $$
 
-**这比幂级数计算方便得多**。
+**这比直接对幂级数逐项算方便得多**——代价是把计算压力前移到“求谱”这一步。
 
 **例 1.84**  用谱分解计算 $e^{-i\theta Z}$。
 
-$Z$ 的谱分解：$Z = 1\cdot|0\rangle\langle 0| + (-1)\cdot|1\rangle\langle 1|$。
+$Z$ 已对角，久期方程立刻给出本征值 $\pm 1$，谱分解：$Z = 1\cdot|0\rangle\langle 0| + (-1)\cdot|1\rangle\langle 1|$。
 
 $$
 e^{-i\theta Z} = e^{-i\theta \cdot 1} |0\rangle\langle 0| + e^{-i\theta \cdot (-1)} |1\rangle\langle 1|
@@ -1905,12 +1884,12 @@ $$
 $$
 
 $$
-= \begin{pmatrix} e^{-i\theta} & 0 \\ 0 & e^{i\theta} \end{pmatrix}
+= \begin{pmatrix} e^{-i\theta} & 0 \ 0 & e^{i\theta} \end{pmatrix}
 $$
 
 当 $\theta$ 很小时，$e^{-i\theta Z} \approx I - i\theta Z$。
 
-### 1.10.6 奇异值分解
+### 1.10.5 奇异值分解
 
 **定理 1.3（奇异值分解，SVD）** 任意 $m \times n$ 矩阵 $M$ 可以分解为：
 
@@ -1937,7 +1916,7 @@ SVD 在量子信息中的应用：
 - 量子态层析
 - 矩阵压缩和噪声分析
 
-### 1.10.7 极分解
+### 1.10.6 极分解
 
 **定理 1.4（极分解）** 任意方阵 $M$ 可以分解为：
 
@@ -2152,7 +2131,8 @@ $$
 | 纠缠 | 57 |
 | 矩阵指数 | 58-59 |
 | 反厄米矩阵 | 60 |
-| 旋转算符 | 61 |
+| 谱分解与矩阵函数 | 61 |
+| 久期方程 | 61 |
 | 奇异值分解 | 62-63 |
 | 极分解 | 64 |
 | 薛定谔方程 | 60 |
