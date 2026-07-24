@@ -1502,11 +1502,28 @@ $$
 **性质**：
 - $\text{Tr}(A + B) = \text{Tr}(A) + \text{Tr}(B)$
 - $\text{Tr}(cA) = c \cdot \text{Tr}(A)$
-- $\text{Tr}(AB) = \text{Tr}(BA)$（循环不变性）
+- **循环不变性（有向轮转）**：在矩阵乘积可定义的前提下，
+  $$
+  \text{Tr}(ABC) = \text{Tr}(BCA) = \text{Tr}(CAB)
+  $$
+  即把乘积**整体循环轮转**（最左边的因子接到最右边，或反过来）时迹不变。一般**不能**任意重排，例如通常
+  $$
+  \text{Tr}(ABC) \neq \text{Tr}(ACB)
+  $$
+  （后者是对换，不是循环）。两因子时 $\text{Tr}(AB)=\text{Tr}(BA)$ 看起来像“随便对调”，其实只是三因子有向轮转的退化：$B$ 与 $A$ 对调等价于把 $AB$ 写成 $BA$ 这一种循环，**并不**说明迹对任意置换对称。
 - $\text{Tr}(A \otimes B) = \text{Tr}(A) \cdot \text{Tr}(B)$
-- $\text{Tr}(U^\dagger A U) = \text{Tr}(A)$（幺正变换下不变）
+- $\text{Tr}(U^\dagger A U) = \text{Tr}(A)$（幺正变换下不变；本身也是循环：$\text{Tr}(U^\dagger A U)=\text{Tr}(A U U^\dagger)=\text{Tr}(A)$）
 
 **例 1.73**  $\text{Tr}\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} = 1 + 4 = 5$。
+
+**例（循环有向）** 取
+$A=\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$，
+$B=\begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}$，
+$C=\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$。
+则 $ABC=\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$，$\text{Tr}(ABC)=1$；
+$BCA=\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}$，$\text{Tr}(BCA)=1$；
+而 $ACB=\begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}$，$\text{Tr}(ACB)=0$。  
+可见循环相等、对换一般不等。
 
 **例 1.74**  $|\psi\rangle = \alpha|0\rangle + \beta|1\rangle$，密度矩阵 $\rho = |\psi\rangle\langle \psi|$：
 
@@ -1570,9 +1587,17 @@ $$
 
 ### 1.9.3 部分迹的物理意义
 
-部分迹的物理意义：当我们只关心子系统 $A$ 而对 $B$ "无知"时，$A$ 的状态由 $\rho_A = \text{Tr}_B(\rho_{AB})$ 描述。
+部分迹的物理意义：当我们只关心子系统 $A$ 而对 $B$ “无知”时，$A$ 的状态由 $\rho_A = \text{Tr}_B(\rho_{AB})$ 描述。
 
-**为什么这很重要？** 量子计算机和外界环境不可避免地相互作用，导致**退相干**。环境可以看作系统 $B$，而我们的量子计算机是系统 $A$。对环境的无知导致 $A$ 的状态从纯态变为混合态——这正是退相干的数学描述。
+**为什么这很重要？** 真实器件里，量子比特几乎从不孤立：它与读出腔、两能级泄漏空间、热浴等构成**系统–环境**联合体。把量子比特（及我们想研究的门作用对象）记为 $S$，其余记为环境 $E$，则联合态落在 $H_S\otimes H_E$ 上；实验上往往只能访问 $S$，有效描述就是约化态
+
+$$
+\rho_S = \text{Tr}_E(\rho_{SE})
+$$
+
+这正是开放量子系统的语言入口：对环境取偏迹之后，$S$ 上看到的不再保证是纯态，纠缠与噪声都以混合态形式出现——退相干是其典型后果之一。
+
+对**量子门**同样如此。理想闭系统里，门是 $H_S$ 上的幺正 $U_S$。一旦演化实际发生在 $S+E$ 上再对 $E$ 取偏迹，比特上诱导的有效操作一般**不是**单个幺正，而是一条把 $\rho_S$ 映到 $\rho_S'$ 的**量子信道**（完全正、保迹映射）。工程上标定的“门错误”“读出混淆”等，都是在问这条约化动力学偏离理想 $U_S$ 有多远。完整信道与 Kraus 表示见密度矩阵与噪声章节（模块一 ch03、模块五 ch21）；此处只需建立：**偏迹 = 从联合演化抽出开放比特 / 开放门的标准接口**。
 
 ### 1.9.4 施密特分解
 
