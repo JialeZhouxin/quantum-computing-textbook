@@ -362,99 +362,274 @@ $|\psi(t)\rangle=e^{-i\omega t/2}|0\rangle$，与 $|0\rangle$ 同射线；$\lang
 
 ## 2.6 二能级系统
 
-### 2.6.1 基本思想
+### 2.6.1 是什么
 
-二能级系统（two-level system）是量子信息中最简单也最重要的系统。
+**二能级系统（TLS / qubit）** 是 $\dim\mathcal{H}=2$ 的量子系统：只保留两个计算相关能级，记为 $|0\rangle$、$|1\rangle$（更高能级视为泄漏，硬件章再谈）。
 
-**小练习**：请举出三个二能级系统的物理实例。
+物理实例（同一套数学）：
 
-### 2.6.2 二能级系统的一般态
+- 自旋 $1/2$ 沿某轴的两个投影；
+- 两极化正交模式中的单光子偏振；
+- 超导 Transmon 的基态/第一激发态（近似二能级）；
+- 原子的钟跃迁两能级。
 
-一般态可以写为 $|\psi\rangle = \cos\frac{\theta}{2}|0\rangle + e^{i\varphi}\sin\frac{\theta}{2}|1\rangle$。
+**它回答的问题：** 量子信息里“一个比特”的状态空间长什么样、如何参数化、驱动下如何翻转。
 
-**小练习**：写出参数 $\theta = \pi/3$，$\varphi = \pi/4$ 对应的量子态。
+### 2.6.2 数学对象：一般纯态
 
-### 2.6.3 布洛赫球面表示
+任意归一纯态（取 $|0\rangle$ 系数非负的相位约定）可写成
 
-布洛赫球面是单量子比特的几何表示。
+$$
+|\psi\rangle
+= \cos\frac{\theta}{2}\,|0\rangle
++ e^{i\varphi}\sin\frac{\theta}{2}\,|1\rangle,
+\quad
+\theta\in[0,\pi],\ \varphi\in[0,2\pi).
+$$
 
-**小练习**：态 $|+\rangle$ 在布洛赫球面上的坐标是什么？$|-\rangle$ 呢？
+- $\theta$：极角，控制 $|0\rangle/|1\rangle$ 布居（$p_0=\cos^2\frac{\theta}{2}$，$p_1=\sin^2\frac{\theta}{2}$）。
+- $\varphi$：**相对相位**（$|1\rangle$ 相对 $|0\rangle$）；**不是**全局相位。
+- 全局相位 $e^{i\alpha}|\psi\rangle$ 不进入上式参数，因射线等价（§2.1）。
 
-### 2.6.4 拉比振荡
+等价地，纯态密度算符 $\rho=|\psi\rangle\langle\psi|$ 可用 **Bloch 矢量** $\vec{r}=(r_x,r_y,r_z)$ 写
 
-拉比振荡是量子系统在驱动下场期性翻转的现象。
+$$
+\rho = \frac{I+\vec{r}\cdot\vec{\sigma}}{2},
+\quad
+\vec{r}
+=
+\big(
+\langle X\rangle,\langle Y\rangle,\langle Z\rangle
+\big),
+\quad
+|\vec{r}|=1\ \text{（纯态）}.
+$$
 
-**小练习**：如果拉比频率 $\Omega = 2\pi \times 10$ MHz，实现一个 $\pi$ 脉冲需要多长时间？
+坐标与 $(\theta,\varphi)$ 的关系：
 
-### 2.6.5 相对相位与全局相位的区别
+$$
+r_x=\sin\theta\cos\varphi,\quad
+r_y=\sin\theta\sin\varphi,\quad
+r_z=\cos\theta.
+$$
 
-全局相位不可观测，相对相位可观测。
+球面上的点 $\leftrightarrow$ 纯态；球**内**点 $|\vec{r}|<1$ 是混合态（第 3 章）。门与旋转图像的系统训练在模块三 ch07；此处只建立参数字典。
 
-**小练习**：$|0\rangle + e^{i\pi/2}|1\rangle$ 的相对相位是多少？它对应布洛赫球面上的哪个点？
+### 2.6.3 操作步骤
+
+**由参数写态 / 由态读参数：**
+
+1. 归一化 $|\psi\rangle=c_0|0\rangle+c_1|1\rangle$。
+2. 抽全局相位使 $c_0$ 为实且 $\ge 0$：$|\psi\rangle\leftarrow e^{-i\arg c_0}|\psi\rangle$（若 $c_0=0$ 则态在南极，$|1\rangle$ 相位可整体规范）。
+3. $\theta=2\arccos(|c_0|)$（或 $\cos\theta=|c_0|^2-|c_1|^2$）。
+4. $\varphi=\arg(c_1)-\arg(c_0)$（在上述规范下即 $\arg c_1$）。
+5. 需要 Bloch 矢量时：算 $\langle X\rangle,\langle Y\rangle,\langle Z\rangle$。
+
+**相对相位 vs 全局相位（可操作判据）：**
+
+- 全局：$|\psi\rangle\mapsto e^{i\alpha}|\psi\rangle$ → 一切 $\langle A\rangle$ 与投影概率不变。
+- 相对：只改 $c_1/c_0$ 的辐角 → 例如 $\langle X\rangle,\langle Y\rangle$ 会变；$Z$ 基概率可不变。
+
+### 2.6.4 算例
+
+**例 2.13** $\theta=\pi/3$，$\varphi=\pi/4$：
+
+$$
+|\psi\rangle
+= \cos\frac{\pi}{6}|0\rangle + e^{i\pi/4}\sin\frac{\pi}{6}|1\rangle
+= \frac{\sqrt{3}}{2}|0\rangle + e^{i\pi/4}\frac{1}{2}|1\rangle.
+$$
+
+$p_0=3/4$，$p_1=1/4$；
+$r_z=\cos(\pi/3)=1/2$，
+$r_x=\sin(\pi/3)\cos(\pi/4)=\sqrt{6}/4$，
+$r_y=\sin(\pi/3)\sin(\pi/4)=\sqrt{6}/4$。
+
+**例 2.14（特殊点）**
+
+| 态 | $(\theta,\varphi)$ | $\vec{r}$ |
+|---|---|---|
+| $\|0\rangle$ | $(0,\cdot)$ | $(0,0,1)$ |
+| $\|1\rangle$ | $(\pi,\cdot)$ | $(0,0,-1)$ |
+| $\|+\rangle$ | $(\pi/2,0)$ | $(1,0,0)$ |
+| $\|-\rangle$ | $(\pi/2,\pi)$ | $(-1,0,0)$ |
+| $\|+y\rangle$ | $(\pi/2,\pi/2)$ | $(0,1,0)$ |
+
+**例 2.15（相对相位可观测）**  
+$|\psi_0\rangle=\frac{1}{\sqrt{2}}(|0\rangle+|1\rangle)$ 与
+$|\psi_1\rangle=\frac{1}{\sqrt{2}}(|0\rangle+i|1\rangle)$  
+$Z$ 基概率同为 $1/2$，但 $\langle X\rangle$ 分别为 $1$ 与 $0$，$\langle Y\rangle$ 分别为 $0$ 与 $1$。相对相位 $\pi/2$ 被 $X/Y$ 测出来；整体乘 $e^{i\alpha}$ 则三者皆不变。
+
+### 2.6.5 拉比振荡（驱动下的二能级）
+
+在旋转波近似下，近共振驱动的有效哈密顿常取（$\hbar=1$ 单位）
+
+$$
+H = \frac{\Omega}{2}\,X
+\quad\text{（共振，驱动相位取 0）},
+$$
+
+则
+
+$$
+U(t)=e^{-i\Omega t X/2}
+= \cos\frac{\Omega t}{2}\,I - i\sin\frac{\Omega t}{2}\,X.
+$$
+
+初态 $|0\rangle$：
+
+$$
+|\psi(t)\rangle
+= \cos\frac{\Omega t}{2}|0\rangle - i\sin\frac{\Omega t}{2}|1\rangle,
+\quad
+p_1(t)=\sin^2\frac{\Omega t}{2}.
+$$
+
+- **$\pi$ 脉冲：** $\Omega t=\pi$ $\Rightarrow$ $p_1=1$（布居翻转）。
+- **$\pi/2$ 脉冲：** $\Omega t=\pi/2$ $\Rightarrow$ 等权叠加（差一相位约定）。
+
+**例 2.16** $\Omega=2\pi\times 10\,\mathrm{MHz}=2\pi\cdot 10^7\,\mathrm{rad/s}$，  
+$t_\pi=\pi/\Omega = 50\,\mathrm{ns}$。
+
+完整脉冲形状、失谐、 Bloch 章动与硬件校准见 ch07 / ch12 / ch27；此处只要会从 $H$ 写 $U(t)$ 与 $p_1(t)$。
+
+**小练习：** 举三个二能级物理实例。  
+**小练习：** 写出 $\theta=\pi/3$，$\varphi=\pi/4$ 的态，并算 $p_0$。  
+**小练习：** $|+\rangle$、$|-\rangle$ 的 Bloch 坐标。  
+**小练习：** $\Omega=2\pi\times 10\,\mathrm{MHz}$ 的 $\pi$ 脉冲时长。  
+**小练习：** $\frac{1}{\sqrt{2}}(|0\rangle+e^{i\pi/2}|1\rangle)$ 的相对相位？$\langle X\rangle,\langle Y\rangle$？
+
+---
 
 ## 2.7 量子信息特有的结论
 
+本节结论都从 §2.1–2.5 **推出来**，不是新公设。统一问题：信息能否被复制、区分、在测量中无损读取。
+
 ### 2.7.1 量子不可克隆定理
 
-量子态不能被完美复制。
+**陈述。** 不存在这样一个幺正 $U$（作用在系统+空白辅助上），使得对**所有**态 $|\psi\rangle$ 都有
 
-**小练习**：为什么量子不可克隆定理不禁止制备已知量子态的多个副本？
+$$
+U\big(|\psi\rangle\otimes|0\rangle\big)
+= |\psi\rangle\otimes|\psi\rangle.
+$$
 
-### 2.7.2 非正交态的不可区分性
+**证明思路（线性）：** 假设存在。取正交 $|0\rangle,|1\rangle$，则
 
-非正交态无法被确定性区分。
+$$
+U|0\rangle|0\rangle=|0\rangle|0\rangle,\quad
+U|1\rangle|0\rangle=|1\rangle|1\rangle.
+$$
 
-**小练习**：两个非正交态能否被确定性区分？如果不能，能否以大于 50% 的概率区分？
+对 $|+\rangle=\frac{1}{\sqrt{2}}(|0\rangle+|1\rangle)$，左边线性给出
 
-### 2.7.3 量子测量的交互解释
+$$
+U|+\rangle|0\rangle
+= \frac{1}{\sqrt{2}}\big(|00\rangle+|11\rangle\big),
+$$
 
-测量不是被动的读取，而是主动的交互。
+右边若完美克隆应为 $|+\rangle|+\rangle=\frac{1}{2}(|00\rangle+|01\rangle+|10\rangle+|11\rangle)$。二者不等。矛盾。  
+故：**未知通用态**不可完美复制。
 
-**小练习**：退相干的本质是什么？它对量子计算有何影响？
+**不禁止什么：**
 
-### 2.7.4 态矢量演化的可视化总结
+- 已知态的**制备程序**可跑两遍（你知道经典描述，不是“复制未知量子态”）；
+- 正交态可在测量后按结果重新制备（测量已破坏原叠加）；
+- 近似克隆、概率克隆有界可行（本课不展开）。
 
-量子计算全过程可概括为制备—演化—测量。
+**例 2.17** 若可完美克隆，则可对克隆体测 $X$、对本体测 $Z$，从而同时获知不对易信息，与 §2.4 冲突——不可克隆与不确定关系同族。
 
-**小练习**：简述量子计算全过程的三个步骤。
+### 2.7.2 非正交态不可完美区分
 
----
+**陈述。** 若 $|\psi\rangle$、$|\phi\rangle$ 满足 $0<|\langle\psi|\phi\rangle|<1$，则**不存在**只输出 $\{0,1\}$ 的测量，使得
+
+$$
+\Pr(\text{判 }\psi\,|\,\text{真是 }\psi)=1
+\quad\text{且}\quad
+\Pr(\text{判 }\phi\,|\,\text{真是 }\phi)=1.
+$$
+
+**操作含义：** 单次投影测量最多给出有限区分力。对两个等先验非正交纯态，最优成功概率有 Helstrom 界
+
+$$
+P_{\mathrm{succ}}
+= \frac{1}{2}+\frac{1}{2}\sqrt{1-|\langle\psi|\phi\rangle|^2}
+\ >\ \frac12
+\quad\text{（仍可 }<\ 1\text{）}.
+$$
+
+正交时 $|\langle\psi|\phi\rangle|=0$ $\Rightarrow$ $P_{\mathrm{succ}}=1$（例如 $|0\rangle$ vs $|1\rangle$ 的 $Z$ 测量）。
+
+**例 2.18** $|0\rangle$ 与 $|+\rangle$：$\langle0|+\rangle=1/\sqrt{2}$，  
+$P_{\mathrm{succ}}=\frac12+\frac12\sqrt{1/2}=\frac12+\frac{\sqrt{2}}{4}\approx 0.853$。  
+可优于瞎猜 50%，但不能 100%。
+
+**小练习：** 两非正交态能否确定性区分？能否以 $>50\%$ 概率区分？
+
+### 2.7.3 测量是交互，不是只读
+
+投影测量公设已规定：得到结果 $m$ 后态变为 $P_m|\psi\rangle$ 的归一化。因此：
+
+- 测量**写入**仪器与系统的关联，不是读取硬盘式的无损拷贝；
+- 想“看一眼还保持原叠加”，一般不可能（与不可克隆、非正交不可区分一致）；
+- **退相干**（预告）：系统与环境纠缠后，只看系统相当于对环境取偏迹（§1.9.3），相干项被压掉——像“环境替你做了一场未读出的测量”。完整噪声模型见 ch21。
+
+### 2.7.4 量子计算三段式（可视化总结）
+
+把公设串成算法骨架：
+
+1. **制备：** 在 $\mathcal{H}$ 中准备 $|{\psi_0}\rangle$（态空间公设）。  
+2. **演化：** 施加门序列 = 幺正 $U$（时间演化公设；理想封闭）。  
+3. **测量：** 对约定可观察量做投影测量，得经典比特串（测量公设）。
+
+中间可插入“只看子系统”的偏迹描述（开放），但标准电路图默认 1–2–3。  
+二能级几何（Bloch 上的旋转）是第 2 步在 $n=1$ 时的图画；多比特纠缠在 ch08。
+
+**例 2.19（最小电路）** 制备 $|0\rangle$ → 应用 $H$ → 测 $Z$：  
+$|0\rangle\mapsto|+\rangle$，得 0/1 各 $1/2$。这是“制备–演化–测量”的最小实例。
+
+**小练习：** 为何不可克隆不禁止“按配方再做一份已知态”？  
+**小练习：** 简述不可克隆证明中线性性如何制造矛盾。  
+**小练习：** 退相干与偏迹的一句话关系。  
+**小练习：** 用三步骤描述：从 $|0\rangle$ 出发，Hadamard 后测 $Z$。
+
+'''---
 
 ### 知识点索引
 
 | 术语 | 英文 | 章节 |
 |------|------|------|
-| Born 规则 | Born rule | 2.3.3 |
-| Dirac 符号 | Dirac notation / bra-ket notation | 2.1.2 |
-| POVM | Positive Operator-Valued Measure | 2.3.6 |
+| Born 规则 | Born rule | 2.3 |
+| Dirac 符号 | Dirac notation / bra-ket notation | 2.1 |
+| POVM | Positive Operator-Valued Measure | 2.3 |
 | 不确定性原理 | Uncertainty principle | 2.4 |
 | 布洛赫球面 | Bloch sphere | 2.6.3 |
 | 态空间 | State space | 2.1 |
-| 定态 | Stationary state | 2.5.4 |
-| 对易子 | Commutator | 2.4.6 |
+| 定态 | Stationary state | 2.5 |
+| 对易子 | Commutator | 2.4 |
 | 二能级系统 | Two-level system | 2.6 |
 | 非正交态不可区分 | Non-orthogonal state indistinguishability | 2.7.2 |
-| 哈密顿算符 | Hamiltonian | 2.2.2 |
+| 哈密顿算符 | Hamiltonian | 2.2 |
 | Hermitian 算符 | Hermitian operator | 2.2 |
 | 可观察量 | Observable | 2.2 |
 | 拉比振荡 | Rabi oscillation | 2.6.4 |
 | 量子比特 | Qubit | 2.6.1 |
 | 量子不可克隆定理 | No-cloning theorem | 2.7.1 |
-| 期望值 | Expectation value | 2.3.5 |
-| 全局相位 | Global phase | 2.1.3 |
-| 射線表示 | Ray representation | 2.1.3 |
-| 时间演化算符 | Time evolution operator | 2.5.3 |
-| 坍缩 | Collapse | 2.3.4 |
+| 期望值 | Expectation value | 2.3 |
+| 全局相位 | Global phase | 2.1 |
+| 射线表示 | Ray representation | 2.1 |
+| 时间演化算符 | Time evolution operator | 2.5 |
+| 坍缩 | Collapse | 2.3 |
 | 投影测量 | Projective measurement | 2.3 |
-| 投影算符 | Projector | 2.3.2 |
+| 投影算符 | Projector | 2.3 |
 | 退相干 | Decoherence | 2.7.3 |
-| 相对相位 | Relative phase | 2.6.5 |
+| 相对相位 | Relative phase | 2.6 |
 | 薛定谔方程 | Schrödinger equation | 2.5 |
 | 幺正算符 | Unitary operator | 2.5.3 |
-| 标准差 | Standard deviation | 2.4.2 |
-| 叠加原理 | Superposition principle | 2.1.4 |
-| 自旋 | Spin | 2.2.3 |
-| 最小不确定态 | Minimum uncertainty state | 2.4.4 |
+| 标准差 | Standard deviation | 2.4 |
+| 叠加原理 | Superposition principle | 2.1 |
+| 自旋 | Spin | 2.2 |
+| 最小不确定态 | Minimum uncertainty state | 2.4 |
 
 ---
 
@@ -465,7 +640,8 @@ $|\psi(t)\rangle=e^{-i\omega t/2}|0\rangle$，与 $|0\rangle$ 同射线；$\lang
 > 3. **投影测量**：概率 ⟨P_m⟩，坍缩后归一化 P_m|ψ⟩；会算 p_m、事后态、⟨A⟩。
 > 4. **不确定关系（定理）**：ΔA ΔB ≥ (1/2)|⟨[A,B]⟩|；对易方可同时确定。
 > 5. **时间演化**：封闭系统 iℏ ψ̇ = Hψ，U 幺正；会算 U(t)|ψ⟩。
-> 6. **§2.6–2.7**：二能级几何与量子信息推论（骨架；详见模块三及相关节）。
+> 6. **二能级**：参数 $(\theta,\varphi)$ 与 Bloch 矢量；相对相位可观测；拉比 $p_1=\sin^2(\Omega t/2)$。
+> 7. **信息论推论**：不可克隆、非正交不可完美区分；测量有更新；算法=制备–演化–测量。
 >
 > 下一章：密度矩阵与混合态——把「开放系统只看子系统」变成日常语言。
 
