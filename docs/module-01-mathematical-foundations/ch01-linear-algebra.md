@@ -60,17 +60,56 @@ $$
 
 把复数 $z = a + bi$ 看作二维平面上的一个点——横坐标是实部 $a$，纵坐标是虚部 $b$。这个平面称为**复平面**（或 Argand 平面）。
 
-```
-    虚轴 (Im)
-        ↑
-     b  ·————— z = a + bi
-        |   ↙
-        |  /   r = |z|
-        | /
-        |/ θ
-━━━━━━┷━━━━━━━━━━━→ 实轴 (Re)
-        O     a
-```
+<svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; display: block; margin: 1.5em auto;">
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- 坐标轴 -->
+  <line x1="40" y1="275" x2="390" y2="275" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <line x1="65" y1="290" x2="65" y2="30" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  
+  <!-- 刻度标记 (tick marks) -->
+  <line x1="185" y1="272" x2="185" y2="278" stroke="#888" stroke-width="1"/>
+  <line x1="305" y1="272" x2="305" y2="278" stroke="#888" stroke-width="1"/>
+  <line x1="62" y1="155" x2="68" y2="155" stroke="#888" stroke-width="1"/>
+  
+  <!-- 点 z 到坐标轴的虚线投影 -->
+  <line x1="65" y1="155" x2="225" y2="155" stroke="#aaa" stroke-width="1" stroke-dasharray="5,4"/>
+  <line x1="225" y1="275" x2="225" y2="165" stroke="#aaa" stroke-width="1" stroke-dasharray="5,4"/>
+  
+  <!-- 角度弧线 (θ) -->
+  <path d="M 110,275 A 45,45 0 0,1 200,221" fill="none" stroke="#e65100" stroke-width="1.5"/>
+  
+  <!-- 从原点到 z 的线段 (模 r) -->
+  <line x1="65" y1="275" x2="225" y2="155" stroke="#00695c" stroke-width="2.5"/>
+  
+  <!-- 点 z 的圆点 -->
+  <circle cx="225" cy="155" r="4.5" fill="#00695c"/>
+  
+  <!-- 标签 -->
+  <text x="380" y="270" font-family="Georgia, serif" font-size="16" fill="#333" font-style="italic">Re</text>
+  <text x="50" y="35" font-family="Georgia, serif" font-size="16" fill="#333" font-style="italic">Im</text>
+  <text x="45" y="272" font-family="Georgia, serif" font-size="15" fill="#333" font-weight="bold">O</text>
+  
+  <!-- 轴上坐标标签 -->
+  <text x="175" y="293" font-family="Georgia, serif" font-size="14" fill="#555" font-style="italic">a</text>
+  <text x="110" y="160" font-family="Georgia, serif" font-size="14" fill="#555" font-style="italic">b</text>
+  
+  <!-- z 点标签 -->
+  <text x="233" y="148" font-family="Georgia, serif" font-size="15" fill="#00695c" font-weight="bold" font-style="italic">z</text>
+  
+  <!-- 模 r 标签 -->
+  <text x="130" y="192" font-family="Georgia, serif" font-size="14" fill="#00695c" font-style="italic">r = |z|</text>
+  
+  <!-- 角度 θ 标签 -->
+  <text x="130" y="236" font-family="Georgia, serif" font-size="14" fill="#e65100" font-style="italic">θ</text>
+  
+  <!-- 坐标值标注 -->
+  <text x="285" y="155" font-family="Georgia, serif" font-size="13" fill="#888">a + bi</text>
+</svg>
 
 从原点到点 $z$ 的线段长度称为 $z$ 的**模**（或绝对值），记作 $|z|$：
 
