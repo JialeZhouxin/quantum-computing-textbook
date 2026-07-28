@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai:wght@300;400;700&display=swap');
+
 /* WIRED-inspired custom styles for MkDocs Material */
 
 /* Display serif for headings */
 .md-typeset h1,
 .md-typeset h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "LXGW WenKai", serif;
   font-weight: 400;
   letter-spacing: -0.02em;
 }
@@ -17,9 +19,9 @@
   font-size: 1.8em;
 }
 
-/* Body text: serif for magazine feel */
+/* Body text */
 .md-typeset {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "LXGW WenKai", sans-serif;
   font-size: 1.3em;
   line-height: 1.8;
   color: #1a1a1a;
