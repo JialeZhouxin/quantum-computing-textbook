@@ -1,6 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai:wght@300;400;700&display=swap');
-
 /* WIRED-inspired custom styles for MkDocs Material */
+
+/* LXGW WenKai — loaded via China-friendly mirror */
+@import url('https://fonts.loli.net/css2?family=LXGW+WenKai:wght@300;400;700&display=swap');
+
 
 /* Display serif for headings */
 .md-typeset h1,
