@@ -20,7 +20,7 @@
 /* Body text: serif for magazine feel */
 .md-typeset {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.1em;
+  font-size: 1.3em;
   line-height: 1.8;
   color: #1a1a1a;
 }
@@ -38,7 +38,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-size: 0.8em;
+  font-size: 1.1em;
 }
 
 /* Sidebar */
